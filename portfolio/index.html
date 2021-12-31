@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&family=Merriweather:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="styles/main.css">
 
@@ -12,15 +15,15 @@
   </head>
   <body>
     <header class="header">
-      <div class="container">
-        <img class="logo" src="images/logo.svg" alt="">
+      <div class="container header-container">
+        <img class="logo" src="assets/svg/logo.svg" alt="" width="50" height="40">
         <nav class="nav">         
-          <ul class="nav-list">
-            <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
-            <li class="nav-item"><a href="#portfolio" class="nav-link">Portfolio</a></li>
-            <li class="nav-item"><a href="#video" class="nav-link">Video</a></li>
-            <li class="nav-item"><a href="#price" class="nav-link">Price</a></li>
-            <li class="nav-item"><a href="#contacts" class="nav-link">Contacts</a></li>
+          <ul class="nav__list">
+            <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
+            <li class="nav__item"><a href="#portfolio" class="nav__link">Portfolio</a></li>
+            <li class="nav__item"><a href="#video" class="nav__link">Video</a></li>
+            <li class="nav__item"><a href="#price" class="nav__link">Price</a></li>
+            <li class="nav__item"><a href="#contacts" class="nav__link">Contacts</a></li>
           </ul>          
         </nav>
         <button>en / ru</button>
@@ -30,9 +33,11 @@
     <main class="main">
       <div class="container">
         <section class="section hero">
-          <h1 class="hero-title">Alexa Rise</h1>
-          <p class="hero-text">Save sincere emotions, romantic feelings and happy moments of life together with professional photographer Alexa Rise</p>
-          <button class="hireme">Hire me</button>
+          <div class="hero-content">
+            <h1 class="hero__title">Alexa Rise</h1>
+            <p class="hero__text">Save sincere emotions, romantic feelings and happy moments of life together with professional photographer Alexa Rise</p>
+            <button class="btn">Hire me</button>
+          </div>          
         </section>
 
         <section class="section skills">
