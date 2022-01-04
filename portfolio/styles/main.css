@@ -14,6 +14,12 @@ body {
   font-weight: normal;
   font-size: 20px;
   line-height: 40px;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  margin: 0;
+  box-sizing: inherit;
 }
 
 .h1 {
@@ -25,6 +31,7 @@ body {
   background-color: var(--color-gold);
   cursor: pointer;
   line-height: var(--font2);
+  border: none;
 }
 
 .btn:hover {
@@ -36,6 +43,7 @@ body {
   width: 1440px;
   margin: 0 auto;
   padding: 0 20px;
+  box-sizing: content-box;
 }
 
 .header {
@@ -81,11 +89,31 @@ body {
   
 }
 
-.section-title {
+.section-title-wrap { 
+  display: flex;
+  justify-content: center;
   width: 50%;
-  background-image: linear-gradient(to top, var(--color-black) 39px, var(--color-gold) 39px, var(--color-gold) 41px, var(--color-black)  41px);
+  margin: 100px auto 60px auto;
+  background-image: 
+    linear-gradient(to top, 
+    var(--color-black) 39px, 
+    var(--color-gold) 39px, 
+    var(--color-gold) 41px, 
+    var(--color-black) 41px);
 }
+
+.section-title {
+  font-family: Merriweather;
+  font-weight: bold;
+  font-size: var(--font2);
+  line-height: 80px;
+  color: var(--color-gold);
+  background-color: var(--color-black);
+  padding: 0 20px;
+}
+
 .section-content {
+  /* display: flex; */
 }
 
 .hero {
@@ -109,4 +137,189 @@ body {
   font-weight: bold;
   font-size: 60px;
   line-height: 120px;
+}
+
+.hero__text {  
+
+}
+
+.skills {
+
+}
+
+.skills__list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.skills__item {
+  min-height: 240px;
+  width: 320px;
+  list-style: none;
+}
+
+.skills__icon {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+
+.skills__name { 
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.skills__desc {
+  text-align: center;
+  font-size: 18px;
+  line-height: 36px;
+}
+
+.portfolio {
+}
+
+.portfolio-btns-list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 60px;
+}
+.portfolio-btns-item {
+  margin-right: 5px;
+}
+.portfolio-btns {
+}
+.portfolio-btns--active {
+}
+.portfolio-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+.portfolio-img {
+}
+
+.video {
+}
+
+.video-player {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 705px;
+  background: url("../assets/img/video-player.jpg");
+  background-position: center 0;
+  background-repeat: no-repeat;
+}
+
+.price { 
+  padding-bottom: 100px;
+}
+
+.prices-list {
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+}
+.prices-item {
+  list-style: none;
+  border: 3px solid var(--color-gold);
+  padding: 43px 115px;
+  text-align: center;
+
+}
+.price-container {
+}
+.price-header {
+  font-family: Merriweather;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 56px;
+}
+.price-sum {
+  color: var(--color-gold);
+}
+.price-desc-list {
+  padding: 0;
+  padding-bottom: 40px;
+  list-style: none;
+  font-size: 18px;
+  line-height: 36px;
+}
+.price-desc-item {
+}
+.price-order {
+  padding: 8px 20px;
+}
+.price-item {
+}
+
+.contacts {
+  position: relative;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: flex-end; */
+  height: 845px;
+  background: url('../assets/img/contacts-bg.jpg');
+  background-repeat: no-repeat;
+  background-position: center 0;
+}
+.contacts-content {
+  position: absolute;
+  right: 20px;
+  top: 60px;
+}
+.contacts-content .section-title {
+  background-color: transparent;
+  padding-bottom: 40px;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  min-width: 450px;
+
+  
+}
+
+.contact input,
+.contact textarea  {
+  border: 1px solid var(--color-gold);
+  border-radius: 0;
+  background: transparent;
+  padding: 10px;
+  color: var(--color-gold);
+}
+.contact *::placeholder {
+  color: var(--color-gold);
+}
+.contact-email {
+  margin-bottom: 10px;
+}
+.contact-phone {
+  margin-bottom: 10px;
+}
+.contact-message {
+  margin-bottom: 20px;
+}
+.contact-submit {
+}
+.container-footer {
+  display: flex;
+  justify-content: space-between;
+}
+.credits {
+}
+.created {
+}
+.social-list {
+}
+.social-item {
+}
+.social-link {
+}
+.social-img {
 }
