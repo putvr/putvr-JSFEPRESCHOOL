@@ -48,6 +48,15 @@ body {
   color: var(--color-white);
 }
 
+.link {
+  text-decoration: none;
+  color: var(--color-white)
+}
+
+.link:hover {
+  color: var(--color-gold);
+}
+
 .container {
   /* max-width: 1440px; */
   width: 1440px;
