@@ -7,7 +7,11 @@
   --font-normal: 40px;
   --font-small: 20px;
 }
- 
+
+html {
+  scroll-behavior: smooth; 
+}
+
 body {
   background-color: var(--color-black);
   color: var(--color-white);
@@ -65,19 +69,21 @@ body {
   align-items: flex-start  
 }
 
-.logo {
-}
+/* .logo {
+} */
 
 .nav {
   margin-left: auto;
 }
 .nav__list {
   display: flex;
+  justify-content: space-between;
+  gap: 30px;
 }
 
 .nav__item {
   list-style: none;
-  margin-right: 30px;
+  /* margin-right: 33px; */
   line-height: var(--font-medium);
 }
 
@@ -91,6 +97,7 @@ body {
   background-color: transparent;
   color: white;
   line-height: var(--font-medium);
+  padding-left: 45px;
 }
 
 .lang-active {
@@ -257,7 +264,7 @@ body {
 }
 
 .price { 
-  padding-bottom: 100px;
+  padding-bottom: 95px;
 }
 
 .prices-list {
@@ -270,7 +277,6 @@ body {
   border: 3px solid var(--color-gold);
   padding: 43px 115px;
   text-align: center;
-
 }
 
 .price-header {
@@ -305,12 +311,12 @@ body {
   padding: 8px 20px;
 }
 
-.price-item {
-}
+/* .price-item {
+} */
 
 .contacts {
   position: relative;
-  height: 845px;
+  min-height: 700px;
   background: url('../assets/img/contacts-bg.jpg');
   background-repeat: no-repeat;
   background-position: center 0;
@@ -318,56 +324,86 @@ body {
 
 .contacts-content {
   position: absolute;
-  right: 0;
-  top: 60px;
+  right: 21px;
+  top: 56px;
 }
 .contacts-content .section-title {
   background-color: transparent;
-  padding-bottom: 40px;
+  padding-bottom: 45px;
   padding-left: 0;
 }
 
 .contact {
-  display: flex;
-  flex-direction: column;
   min-width: 450px;  
 }
 
+.contact label {
+  display: none;
+}
 .contact input,
 .contact textarea  {
+  display: block;
+  width: 100%;
   border: 1px solid var(--color-gold);
   border-radius: 0;
   background: transparent;
-  padding: 10px;
+  padding: 3px 20px;
   color: var(--color-gold);
+  line-height: var(--font-normal);
 }
 .contact *::placeholder {
   color: var(--color-gold);
 }
 .contact-email {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 .contact-phone {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 .contact-message {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  min-height: 100px;
 }
 .contact-submit {
 }
 .container-footer {
   display: flex;
   justify-content: space-between;
+  padding: 50px 20px;
+  line-height: 50px;
 }
-.credits {
+.credits span {
+  margin-right: 15px;
 }
 .created {
 }
-.social-list {
+.social__list {
+  padding-top: 10px;
+  display: flex;
+  list-style: none;
+  gap: 20px;
 }
-.social-item {
+.social__link {  
+
 }
-.social-link {
+.social__img {
+  display: block;
+  width: 32px;
+  height: 32px;
 }
-.social-img {
+.social__img--ins {
+  background-image: url("../assets/svg/social-ins.svg");
+  background-repeat: no-repeat;
+}
+.social__img--fb {
+  background-image: url("../assets/svg/social-fb.svg");
+  background-repeat: no-repeat;
+}
+.social__img--tw {
+  background-image: url("../assets/svg/social-tw.svg");
+  background-repeat: no-repeat;
+}
+.social__img--pin {
+  background-image: url("../assets/svg/social-pin.svg");
+  background-repeat: no-repeat;
 }

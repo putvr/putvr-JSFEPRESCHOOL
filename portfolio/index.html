@@ -29,7 +29,7 @@
             </ul>          
           </nav>
         <button class="lang">
-          <span class="lang-active">en</span> / <span>ru</span>
+          <span class="lang-active">en </span>  /  <span> ru</span>
         </button>
       </div>
     </header>
@@ -85,7 +85,7 @@
           </div>
         </section>
 
-        <section class="section portfolio">
+        <section class="section portfolio" id="portfolio">
           <div class="section-title-wrap">
             <h2 class="section-title">Portfolio</h2>
           </div>          
@@ -106,17 +106,17 @@
             </ul>
           
             <div class="portfolio-items">
-              <img class="portfolio-img" src="./assets/img/portfolio1.jpg" alt="">
-              <img class="portfolio-img" src="./assets/img/portfolio1.jpg" alt="">
-              <img class="portfolio-img" src="./assets/img/portfolio1.jpg" alt="">
-              <img class="portfolio-img" src="./assets/img/portfolio1.jpg" alt="">
-              <img class="portfolio-img" src="./assets/img/portfolio1.jpg" alt="">
-              <img class="portfolio-img" src="./assets/img/portfolio1.jpg" alt="">
+              <img class="portfolio-img" src="./assets/img/portfolio-img-6.jpg" alt="">
+              <img class="portfolio-img" src="./assets/img/portfolio-img-1.jpg" alt="">
+              <img class="portfolio-img" src="./assets/img/portfolio-img-2.jpg" alt="">
+              <img class="portfolio-img" src="./assets/img/portfolio-img-3.jpg" alt="">
+              <img class="portfolio-img" src="./assets/img/portfolio-img-4.jpg" alt="">
+              <img class="portfolio-img" src="./assets/img/portfolio-img-5.jpg" alt="">
             </div>
           </div>
         </section>
  
-        <section class="section video">
+        <section class="section video" id="video">
           <div class="section-title-wrap">
             <h2 class="section-title">Video</h2>
           </div>
@@ -187,14 +187,16 @@
           <div class="contacts-content">
             <h2 class="section-title">Contact me</h2>
             <div class="section-content" >
-              <form class="contact" action="#">              
-                <input 
-                  class="contact-email"              
-                  type="email" 
-                  name="email" 
-                  id="email" 
-                  placeholder="E-mail" 
-                >
+              <form class="contact" action="#">    
+                <!-- <label         />  -->
+                  <input 
+                    class="contact-email"              
+                    type="email" 
+                    name="email" 
+                    id="email" 
+                    placeholder="E-mail" 
+                  >
+                
                 <input
                   class="contact-phone" 
                   type="tel" 
@@ -206,8 +208,8 @@
                   class="contact-message" 
                   name="message" 
                   id="message" 
-                  cols="30" 
-                  rows="10"                 
+                  cols="10" 
+                  rows="2"                 
                   placeholder="Message"
                 ></textarea>
                 <button class="contact-submit btn" type="submit">Send message</button>
@@ -218,25 +220,39 @@
       </div>     
     </main>
 
-    <!-- <footer class="footer">
+    <footer class="footer">
       <div class="container container-footer">
-        <span class="credits">© 2022 github</span>
+        <div class="credits">
+          <span>©</span>
+          <span>2022</span>   
+          <span>github</span> 
+        </div>
         <span class="created">Rolling Scopes School</span>
-        <ul class="social-list">
-          <li class="social-item">
-            <a href="#" class="social-link">
-              <img class="social-img" src="./assets/svg/skills-sprite.svg" alt=""></a></li>
-          <li class="social-item">
-            <a href="#" class="social-link">
-              <img class="social-img" src="images/social-fb.svg" alt=""></a></li>
-          <li class="social-item">
-            <a href="#" class="social-link">
-              <img class="social-img" src="images/social-tw.svg" alt=""></a></li>
-          <li class="social-item">
-            <a href="#" class="social-link">
-              <img class="social-img" src="images/social-pin.svg" alt=""></a></li>
+
+        <ul class="social__list">
+          <li class="social__item ">
+            <a href="#" class="social__link">
+              <i class="social__img social__img--ins"/></i>
+            </a>
+          </li>
+          <li class="social__item ">
+            <a href="#" class="social__link">
+              <i class="social__img social__img--fb"></i>
+            </a>
+          </li>          
+          <li class="social__item ">
+            <a href="#" class="social__link">
+              <i class="social__img social__img--tw"></i>
+            </a>
+          </li>          
+          <li class="social__item ">
+            <a href="#" class="social__link">
+              <i class="social__img social__img--pin"></i>
+            </a>
+          </li>
         </ul>
       </div>
-    </footer> -->
+    </footer> 
+    <script src="index.js"></script>
   </body>
 </html>
