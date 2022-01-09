@@ -42,6 +42,7 @@ body {
   cursor: pointer;
   line-height: var(--font2);
   border: none;
+  transition: 1s;  
 }
 
 .btn:hover {
@@ -50,11 +51,21 @@ body {
 
 .link {
   text-decoration: none;
-  color: var(--color-white)
+  color: var(--color-white);
+  transition: 1s;  
 }
 
 .link:hover {
   color: var(--color-gold);
+}
+
+.img-hover {
+  transition: 1s;
+}
+
+.img-hover:hover {
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
 }
 
 .container {
@@ -77,9 +88,6 @@ body {
   justify-content: space-between;
   align-items: flex-start  
 }
-
-/* .logo {
-} */
 
 .nav {
   margin-left: auto;
@@ -119,7 +127,7 @@ body {
 }
 
 .section {
-  
+  /* scroll-behavior: smooth;  */
 }
 
 .section-title-wrap { 
