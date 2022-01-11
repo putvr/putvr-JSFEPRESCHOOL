@@ -74,8 +74,8 @@ body {
 }
 
 .container {
-  max-width: 1440px;
-  /* width: 1440px; */
+  /* max-width: 1440px; */
+  width: 1440px;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -246,8 +246,9 @@ body {
 }
 
 .portfolio-items {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
   gap: 25px;
 }
 
@@ -265,6 +266,12 @@ body {
   background: url("../assets/img/video-player.jpg");
   background-position: center 0;
   background-repeat: no-repeat;
+}
+
+.video-btn {
+ background: transparent;
+ border: none;
+ cursor: pointer;
 }
 
 .price { 
@@ -351,7 +358,7 @@ body {
   width: 100%;
   border: 1px solid var(--color-gold);
   border-radius: 0;
-  background: transparent;
+  background: rgba(0, 0, 0, 0.5);
   padding: 4px 20px;
   color: var(--color-gold);
   line-height: var(--font-normal);
