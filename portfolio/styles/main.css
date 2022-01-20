@@ -187,17 +187,19 @@ body {
 
 .section {
   overflow: hidden;
-  display: flex;
 }
-
 .section-title-wrap {
   display: flex;
   justify-content: center;
   width: 50%;
   margin: 100px auto 60px auto;
-  background-image: linear-gradient(to top, var(--color-black) 39px, var(--color-gold) 39px, var(--color-gold) 41px, var(--color-black) 41px);
+  background-image: linear-gradient(to top, var(--color-black) calc(50% - 1px), var(--color-gold) calc(50% - 1px), var(--color-gold) calc(50% + 1px), var(--color-black) calc(50% + 1px));
 }
-
+@media (max-width: 768px) {
+  .section-title-wrap {
+    width: 57%;
+  }
+}
 .section-title {
   font-family: Merriweather;
   font-weight: bold;
@@ -207,19 +209,25 @@ body {
   background-color: var(--color-black);
   padding: 0 20px;
 }
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 32px;
+    line-height: 40px;
+  }
+}
 
 .hero-content {
   width: 525px;
   padding-top: 120px;
   padding-left: 60px;
-  padding-bottom: 332px;
+  padding-bottom: 330px;
 }
 @media (max-width: 768px) {
   .hero-content {
     width: 390px;
     padding-top: 58px;
     padding-left: 0;
-    padding-bottom: 58px;
+    padding-bottom: 150px;
   }
 }
 
@@ -256,36 +264,61 @@ body {
   }
 }
 
+.skills {
+  background: var(--color-black);
+}
 .skills__list {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
-
+@media (max-width: 768px) {
+  .skills__list {
+    padding-top: 7px;
+    row-gap: 36px;
+    column-gap: 44px;
+  }
+}
 .skills__item {
   min-height: 240px;
   width: 320px;
   list-style: none;
 }
-
+@media (max-width: 768px) {
+  .skills__item {
+    min-height: 224px;
+    width: 300px;
+  }
+}
 .skills__icon {
   display: block;
   margin: 0 auto;
   margin-bottom: 50px;
 }
-
+@media (max-width: 768px) {
+  .skills__icon {
+    margin-bottom: 30px;
+  }
+}
 .skills__name {
+  font-family: Inter;
   font-size: var(--font-small);
   text-align: center;
   font-weight: bold;
   margin-bottom: 20px;
+  line-height: 40px;
 }
-
 .skills__desc {
   padding: 0 20px;
   text-align: center;
   font-size: 18px;
   line-height: 36px;
+}
+@media (max-width: 768px) {
+  .skills__desc {
+    line-height: 22px;
+    padding: 0 10px;
+  }
 }
 
 .portfolio-btns-list {
