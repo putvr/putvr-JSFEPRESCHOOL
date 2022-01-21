@@ -81,12 +81,12 @@ body {
 .bg {
   background-image: url("../assets/img/header-bg.jpg");
   background-repeat: no-repeat;
-  background-position: center 0, center bottom 150px;
+  background-position: center 0;
 }
 @media (max-width: 768px) {
   .bg {
-    background-position: -5px -30px, center bottom 150px;
-    background-size: auto 620px, auto;
+    background-position: -5px -30px;
+    background-size: auto 620px;
   }
 }
 
@@ -101,6 +101,14 @@ body {
 @media (max-width: 768px) {
   .container--pd {
     padding: 0 60px;
+  }
+}
+.container--nopd-t {
+  padding: 0 20px;
+}
+@media (max-width: 768px) {
+  .container--nopd-t {
+    padding: 0;
   }
 }
 
@@ -124,6 +132,11 @@ body {
   justify-content: space-between;
   gap: 30px;
 }
+@media (max-width: 768px) {
+  .nav__list {
+    display: none;
+  }
+}
 .nav__item {
   list-style: none;
   line-height: var(--font-medium);
@@ -131,6 +144,18 @@ body {
 .nav__link {
   text-decoration: none;
   color: var(--color-white);
+}
+@media (max-width: 768px) {
+  .nav {
+    order: 2;
+    background-image: url("../assets/svg/menu.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 50px;
+    height: 50px;
+    margin-left: 10px;
+    margin-right: 3px;
+  }
 }
 
 .lang {
@@ -145,33 +170,14 @@ body {
 .lang-active {
   color: var(--color-gold);
 }
-
 @media (max-width: 768px) {
-  .nav {
-    order: 2;
-    background-image: url("../assets/svg/menu.svg");
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 50px;
-    height: 50px;
-    margin-left: 10px;
-    margin-right: 3px;
-  }
-
-  .nav__list {
-    display: none;
-  }
-
   .lang {
+    width: 82px;
     margin-left: auto;
-  }
-  .lang__div {
-    margin-right: 15px;
-  }
-  .lang__ru {
-    margin-right: 11px;
+    margin-right: 12px;
   }
 }
+
 .main {
   display: flex;
   flex-direction: column;
@@ -372,6 +378,11 @@ body {
 .price {
   padding-bottom: 100px;
 }
+@media (max-width: 768px) {
+  .price {
+    padding-bottom: 80px;
+  }
+}
 
 .prices-list {
   display: flex;
@@ -434,10 +445,12 @@ body {
 
 .contacts {
   position: relative;
-  min-height: 700px;
   display: flex;
   justify-content: flex-end;
   background-image: url("../assets/img/contacts-bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: cover;
 }
 @media (max-width: 768px) {
   .contacts {
@@ -447,6 +460,13 @@ body {
 .contacts-content {
   margin-right: 20px;
   margin-top: 60px;
+  padding-bottom: 195px;
+}
+@media (max-width: 768px) {
+  .contacts-content {
+    margin-right: 0;
+    padding-bottom: 112px;
+  }
 }
 .contacts-content .section-title {
   background-color: transparent;
@@ -456,21 +476,28 @@ body {
 @media (max-width: 768px) {
   .contacts-content .section-title {
     text-align: center;
+    line-height: 64px;
+    padding-right: 0;
   }
 }
 
 .contact {
   min-width: 450px;
+  display: flex;
+  flex-direction: column;
+}
+.contact label {
+  display: none;
 }
 .contact input, .contact textarea {
   display: block;
   width: 100%;
-  border: 1px solid var(--color-gold);
+  border: 2px solid var(--color-gold);
   border-radius: 0;
   background: rgba(0, 0, 0, 0.5);
-  padding: 4px 20px;
-  color: var(--color-gold);
-  line-height: var(--font-normal);
+  padding: 3px 20px;
+  font-size: 20px;
+  line-height: 40px;
 }
 .contact *::placeholder {
   color: var(--color-gold);
@@ -485,6 +512,14 @@ body {
   margin-bottom: 30px;
   min-height: 100px;
 }
+.contact .contact-submit {
+  margin-right: auto;
+}
+@media (max-width: 768px) {
+  .contact .contact-submit {
+    margin: 0 auto;
+  }
+}
 
 .container-footer {
   display: flex;
@@ -492,9 +527,22 @@ body {
   padding: 50px 20px;
   line-height: 50px;
 }
+@media (max-width: 768px) {
+  .container-footer {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 18px;
+    line-height: 42px;
+  }
+}
 
 .credits span {
   margin-right: 15px;
+}
+@media (max-width: 768px) {
+  .credits {
+    margin-left: 13px;
+  }
 }
 
 .social__list {
@@ -502,6 +550,11 @@ body {
   display: flex;
   list-style: none;
   gap: 20px;
+}
+@media (max-width: 768px) {
+  .social__list {
+    padding-top: 20px;
+  }
 }
 
 .social__img {

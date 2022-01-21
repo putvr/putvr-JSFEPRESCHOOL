@@ -82,11 +82,11 @@ body {
 .bg {
   background-image: url('../assets/img/header-bg.jpg');
   background-repeat: no-repeat;
-  background-position: center 0, center bottom 150px;
+  background-position: center 0;
 
   @media(max-width: 768px) { 
-    background-position: -5px -30px, center bottom 150px;
-    background-size: auto 620px, auto;
+    background-position: -5px -30px;
+    background-size: auto 620px;
   }
 }
 
@@ -100,6 +100,14 @@ body {
 
     @media(max-width: 768px) {
       padding: 0 60px;  
+    }
+  }
+
+  &--nopd-t {
+    padding: 0 20px;
+
+    @media(max-width: 768px) {
+      padding: 0;  
     }
   }
 }
@@ -123,6 +131,10 @@ body {
     display: flex;
     justify-content: space-between;
     gap: 30px;
+
+    @media(max-width: 768px) {
+      display: none; 
+    }
   }
 
   &__item {
@@ -134,6 +146,17 @@ body {
     text-decoration: none;
     color: var(--color-white)
   }
+
+  @media(max-width: 768px) {  
+    order: 2;
+    background-image: url('../assets/svg/menu.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 50px;
+    height: 50px;
+    margin-left: 10px;
+    margin-right: 3px;
+  }
 }
 
 .lang {
@@ -144,46 +167,16 @@ body {
   background-color: transparent;
   line-height: var(--font-medium);
   cursor: pointer;
-
-  &__div {
-    //margin-right: 2px;
-  }
-
-  &__ru {
-    // margin-right: 9px;
-  }
+  
 
   &-active {
-  color: var(--color-gold);
-  }
-}
-
-@media(max-width: 768px) {
-  .nav {
-    order: 2;
-    background-image: url('../assets/svg/menu.svg');
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 50px;
-    height: 50px;
-    margin-left: 10px;
-    margin-right: 3px;
+    color: var(--color-gold);
   }
 
-  .nav__list {
-    display: none;
-  }
-
-  .lang {
+  @media(max-width: 768px) {
+    width: 82px;
     margin-left: auto;
-
-    &__div{
-      margin-right: 15px;
-    }
-
-    &__ru {
-      margin-right: 11px;
-    }
+    margin-right: 12px;
   }
 }
 
@@ -415,6 +408,10 @@ body {
 
 .price { 
   padding-bottom: 100px;
+
+  @media(max-width: 768px) {
+    padding-bottom: 80px;
+  }
 }
 
 .prices-list {
@@ -478,20 +475,28 @@ body {
 
 .contacts {
   position: relative;
-  min-height: 700px;
+  // min-height: 700px;
   display: flex;
   justify-content: flex-end;
 
   background-image: url("../assets/img/contacts-bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: cover;
 
   @media(max-width: 768px) {
     justify-content: center;
   }
-
+ 
   &-content {
-
     margin-right: 20px;
     margin-top: 60px;
+    padding-bottom: 195px;
+
+    @media(max-width: 768px) {
+      margin-right: 0;
+      padding-bottom: 112px;
+    }
   }
 
   &-content .section-title {
@@ -501,28 +506,32 @@ body {
 
     @media(max-width: 768px) {
       text-align: center;
+      line-height: 64px;
+      padding-right: 0;
     }
   }
 }
 
 .contact {
   min-width: 450px;  
-
+  display: flex;
+  flex-direction: column;
 
   & label {
-    // display: 
+    display: none;
   }
 
   & input,
   & textarea {
     display: block;
     width: 100%;
-    border: 1px solid var(--color-gold);
+    border: 2px solid var(--color-gold);
     border-radius: 0;
     background: rgba(0, 0, 0, 0.5);
-    padding: 4px 20px;
-    color: var(--color-gold);
-    line-height: var(--font-normal);
+    padding: 3px 20px;
+    // color: var(--color-gold);
+    font-size: 20px;
+    line-height: 40px;
   }
 
   & *::placeholder {
@@ -542,9 +551,13 @@ body {
     min-height: 100px;
   }
 
-}
+  .contact-submit {
+    margin-right: auto;
 
-.contact-submit {
+    @media(max-width: 768px) {
+      margin: 0 auto;
+    }
+  }
 }
 
 .container-footer {
@@ -552,10 +565,23 @@ body {
   justify-content: space-between;
   padding: 50px 20px;
   line-height: 50px;
+
+  @media(max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 18px;
+    line-height: 42px;
+  }
 }
 
-.credits span {
-  margin-right: 15px;
+.credits {
+  span {
+    margin-right: 15px;
+  }
+
+  @media(max-width: 768px) {
+    margin-left: 13px;
+  }  
 }
 
 .created {
@@ -566,6 +592,10 @@ body {
   display: flex;
   list-style: none;
   gap: 20px;
+    
+  @media(max-width: 768px) {
+    padding-top: 20px;
+  }
 }
 
 .social__link {  
