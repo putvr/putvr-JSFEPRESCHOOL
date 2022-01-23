@@ -62,4 +62,19 @@ const review =
 29) обязательное требование к интерактивности: плавное изменение внешнего вида элемента при наведении и клике не влияющее на соседние элементы 
 `;
 
-console.log(review);
+// console.log(review);
+
+const menu = document.querySelector('.menu');
+const list = document.querySelector('.nav__list');
+
+menu.addEventListener('click', ()=> {
+  menu.classList.toggle('menu--active');
+  list.classList.toggle('nav__list--menu');
+});
+
+list.addEventListener('click', ({target}) => {
+  if(target.nodeName != 'A') return;
+  
+  menu.classList.remove('menu--active');
+  list.classList.remove('nav__list--menu');
+});
