@@ -6,6 +6,7 @@
   --font-medium: 50px;
   --font-normal: 40px;
   --font-small: 20px;
+  --animation-duration: 0.5s;
 }
 @media (max-width: 768px) {
   :root {
@@ -136,61 +137,80 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  overflow-x: hidden;
 }
 
 .nav {
   margin-left: auto;
   margin-right: 31px;
-  transition-duration: 0.1s;
+  transition-duration: var(--animation-duration);
+}
+@media (max-width: 768px) {
+  .nav {
+    display: block;
+    position: absolute;
+    right: -500px;
+    top: 0;
+    bottom: 0;
+    z-index: 20;
+    transition-duration: var(--animation-duration);
+  }
 }
 .nav__list {
   display: flex;
   justify-content: space-between;
   gap: 30px;
-  transition-duration: 1s;
 }
 @media (max-width: 768px) {
   .nav__list {
-    display: none;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 16px;
   }
 }
 .nav__item {
   list-style: none;
   line-height: var(--font-medium);
-  transition-duration: 1s;
 }
 .nav__link {
   text-decoration: none;
   color: var(--color-white);
 }
-.nav__list--menu {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  gap: 16px;
-  padding-top: 134px;
-  padding-left: 127px;
-  position: absolute;
-  z-index: 20;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 148px;
-  background-color: var(--color-black);
-}
-@media (max-width: 620px) {
-  .nav__list--menu {
-    left: 0;
+@media (max-width: 768px) {
+  .nav--menu {
+    display: block;
+    right: 0;
+    width: calc(100% - 148px);
+    padding-top: 134px;
+    padding-left: 127px;
+    margin: 0;
+    background-color: var(--color-black);
+    transition-duration: var(--animation-duration);
+  }
+  .nav--menu .nav__item {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 35px;
+    line-height: 73px;
   }
 }
-.nav__list--menu .nav__item {
-  font-family: Inter;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 35px;
-  line-height: 73px;
+@media (max-width: 480px) {
+  .nav--menu {
+    width: 100%;
+    padding-left: 25%;
+    transition-duration: var(--animation-duration);
+  }
 }
 
+@keyframes menu-a {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: 20%;
+  }
+}
 .lang {
   display: flex;
   justify-content: space-between;
@@ -209,63 +229,69 @@ body {
     margin-left: auto;
     margin-right: 20px;
   }
+  .lang__div {
+    transform: translateX(-5px);
+  }
 }
 
 .menu {
   display: none;
   visibility: hidden;
-  width: 50px;
-  height: 50px;
-  padding: 10px 0;
-  cursor: pointer;
-}
-.menu span {
-  display: block;
-  width: 50px;
-  height: 3px;
-  margin-bottom: 10px;
-  position: relative;
-  background-color: var(--color-white);
-  transition-duration: 1s;
-}
-.menu--active {
-  position: absolute;
-  top: 20px;
-  right: 56px;
-  z-index: 30;
-}
-.menu--active span {
-  height: 2px;
-  width: 60px;
-}
-.menu--active span:first-child {
-  transform: rotate(45deg) translateY(17px) translateX(2px);
-}
-.menu--active span:nth-last-child(2) {
-  opacity: 0;
-}
-.menu--active span:last-child {
-  transform: translateY(-12px) translateX(-10px) rotate(135deg);
-}
-.menu--active ~ .overlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 10;
 }
 @media (max-width: 768px) {
   .menu {
     display: block;
     visibility: visible;
     margin-right: 4px;
+    width: 50px;
+    height: 50px;
+    padding: 10px 0;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  .menu span {
+    display: block;
+    width: 50px;
+    height: 3px;
+    margin-bottom: 10px;
+    position: relative;
+    background-color: var(--color-white);
+    transition-duration: var(--animation-duration);
+  }
+  .menu--active {
+    display: block;
+    visibility: visible;
+    position: absolute;
+    top: 20px;
+    right: 56px;
+    z-index: 30;
+  }
+  .menu--active span {
+    height: 2px;
+    width: 65px;
+  }
+  .menu--active span:first-child {
+    transform: rotate(45deg) translateY(18px) translateX(2px);
+  }
+  .menu--active span:nth-last-child(2) {
+    opacity: 0;
+  }
+  .menu--active span:last-child {
+    transform: translateY(-12px) translateX(-10px) rotate(135deg);
+  }
+  .menu--active ~ .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
   }
 }
 
 .overlay {
-  transition-duration: 1s;
+  transition: all var(--animation-duration) ease-out;
 }
 
 .main {
