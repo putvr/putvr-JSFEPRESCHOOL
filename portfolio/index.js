@@ -1,3 +1,5 @@
+/* Exercitium II */
+
 const menu = document.querySelector('.menu');
 const list = document.querySelector('.nav');
 
@@ -13,6 +15,24 @@ list.addEventListener('click', ({target}) => {
   list.classList.remove('nav--menu');
 });
 
+/* Exercitium III */
+
+const portfolioImages = document.querySelectorAll('.portfolio-img');
+const portfolioBtns = document.querySelector('.portfolio-btns-list');
+
+let activePortfolioBtn = document.querySelector('.portfolio-btns--active');
+
+portfolioBtns.addEventListener('click', ({ target }) => {
+  const season = target.dataset.season;
+  portfolioImages.forEach((images, idx) => (images.src = `assets/img/${season}/${idx + 1}.jpg`));
+
+  activePortfolioBtn.classList.toggle('portfolio-btns--active');
+  activePortfolioBtn = target;
+  target.classList.toggle('portfolio-btns--active');
+});
+
+
+/* gradus  */ 
 console.log(`
 
 1) Вёрстка соответствует макету. Ширина экрана 768px +48
