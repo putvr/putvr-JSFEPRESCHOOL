@@ -32,6 +32,18 @@ portfolioBtns.addEventListener('click', ({ target }) => {
 });
 
 
+// preload
+const seasons = ['winter', 'spring', 'summer', 'autumn'];
+function preloadImages() {
+  seasons.forEach(s => {
+    for(let i = 1; i <= 6; i++) {
+      const img = new Image();
+      img.src = `./assets/img/${s}/${i}.jpg`;
+    }
+  })
+}
+preloadImages();
+
 /* gradus  */ 
 console.log(`
 
