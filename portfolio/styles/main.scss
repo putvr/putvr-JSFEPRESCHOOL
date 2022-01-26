@@ -1,12 +1,18 @@
 :root {
   --color-gold: #bdae82;
   --color-black: #000;
+
+  --color-main: #bdae82;
+  // --color-secondary: #000;
+  --color-bg: #000;
+
   --color-white: #fff;
   --font-big: 60px;
   --font-medium: 50px;
   --font-normal: 40px;
   --font-small: 20px;
   --animation-duration: 0.5s;
+  // --theme: 
 
   @media(max-width: 768px) {
     --font-big: 60px;
@@ -21,8 +27,8 @@ html {
 }
 
 body {
-  background-color: var(--color-black);
-  color: var(--color-white);
+  background-color: var(--color-bg);
+  color: var(--color-main);
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: normal;
@@ -43,6 +49,17 @@ body {
   box-sizing: inherit;
 }
 
+.light-theme {  
+  --color-bg: #fff;
+
+  .skills,
+  .portfolio, 
+  .video, 
+  .price {
+    --color-main: #000;
+  }
+}
+
 .h1 {
   font-family: 'Merriweather', serif;  
 }
@@ -52,7 +69,7 @@ body {
   min-height: 55px;
   padding: 8px auto;
 
-  background-color: var(--color-gold);
+  background-color: var(--color-main);
   cursor: pointer;
   line-height: var(--font2);
   border: none;
@@ -234,6 +251,14 @@ body {
   }
 }
 
+.theme {
+  width: 45px;
+  height: 45px;
+  background-image: url('../assets/svg/theme-light.svg');
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
 .menu {
   display: none;
   visibility: hidden;
@@ -299,16 +324,15 @@ body {
   &-title-wrap { 
     display: flex;
     justify-content: center;
-    // width: calc(100% / 2 + 40px);
     width: 700px;
     margin: 100px auto 60px auto;
 
     background-image: 
       linear-gradient(to top, 
-      var(--color-black) calc(100% / 2 - 1px), 
-      var(--color-gold) calc(100% / 2 - 1px), 
-      var(--color-gold) calc(100% / 2 + 1px), 
-      var(--color-black) calc(100% / 2 + 1px));
+      var(--color-bg) calc(100% / 2 - 1px), 
+      var(--color-main) calc(100% / 2 - 1px), 
+      var(--color-main) calc(100% / 2 + 1px), 
+      var(--color-bg) calc(100% / 2 + 1px));
     
       @media(max-width: 768px) {
         width: 365px;
@@ -325,8 +349,8 @@ body {
     font-weight: bold;
     font-size: var(--font-normal);
     line-height: 80px;
-    color: var(--color-gold);
-    background-color: var(--color-black);
+    color: var(--color-main);
+    background-color: var(--color-bg);
     padding: 0 20px;
 
     @media(max-width: 768px) {
@@ -491,7 +515,7 @@ body {
 }
 
 .video {
-  &__player {
+  &--player {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -508,7 +532,6 @@ body {
     }
     @media(max-width: 480px) {
       width: 100%;
-      // height: auto;
       background-position: 30% 0;
     }
   }
