@@ -44,6 +44,34 @@ function preloadImages() {
 }
 preloadImages();
 
+// i18n
+import i18Obj from './translate.js';
+function getTranslate(lang) {
+  const elems = document.querySelectorAll('[data-i18]');
+  elems.forEach(e => {
+    e.textContent = i18Obj[lang][e.dataset.i18];
+    if (e.placeholder) {
+      e.textContent = '';
+      e.placeholder = i18Obj[lang][e.dataset.i18];
+    }
+  })
+}
+
+const langSwither = document.querySelector('.lang');
+let langSwitherActive = document.querySelector('.lang-active');
+
+langSwither.addEventListener('click', ({ target }) => {
+  if(!target.dataset.lang) {
+    return;
+  }
+  langSwitherActive.classList.toggle('lang-active');  
+  getTranslate(target.dataset.lang);
+  langSwitherActive = target;
+  langSwitherActive.classList.toggle('lang-active');  
+});
+
+
+
 /* gradus  */ 
 console.log(`
 
