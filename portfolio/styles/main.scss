@@ -3,16 +3,17 @@
   --color-black: #000;
 
   --color-main: #bdae82;
-  // --color-secondary: #000;
   --color-bg: #000;
-
+  --color-hover: #fff;
+  
   --color-white: #fff;
+
   --font-big: 60px;
   --font-medium: 50px;
   --font-normal: 40px;
   --font-small: 20px;
+
   --animation-duration: 0.5s;
-  // --theme: 
 
   @media(max-width: 768px) {
     --font-big: 60px;
@@ -28,7 +29,7 @@ html {
 
 body {
   background-color: var(--color-bg);
-  color: var(--color-main);
+  color: var(--color-white);
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: normal;
@@ -52,12 +53,47 @@ body {
 .light-theme {  
   --color-bg: #fff;
 
+  .theme {
+    background-image: url('../assets/svg/theme-dark.svg');
+  }
+
+  .menu--active {
+    span {
+      @media(max-width: 768px) { 
+        background: var(--color-black);
+      }
+    }
+    .nav__list{
+      background: var(--color-white);   
+    }
+
+    .nav__link {
+      color: var(--color-black);
+    }
+  }
+  
   .skills,
   .portfolio, 
-  .video, 
+  .video-s, 
   .price {
     --color-main: #000;
+    color: var(--color-black);
   }
+  .btn {
+    background: var(--color-gold);
+    color: var(--color-black);
+  }
+
+  .portfolio-btns {
+    &--active {
+      color: var(--color-white);
+    }
+
+    &:hover {
+      background: var(--color-gold);
+    }
+  }
+
 }
 
 .h1 {
@@ -77,7 +113,7 @@ body {
 }
 
 .btn:hover {
-  color: var(--color-white);
+  color: var(--color-hover);
 }
 
 .link {
@@ -254,9 +290,14 @@ body {
 .theme {
   width: 45px;
   height: 45px;
+  margin-left: 28px;
   background-image: url('../assets/svg/theme-light.svg');
   background-repeat: no-repeat;
   cursor: pointer;
+
+  @media(max-width: 768px) {
+    margin-right: 30px;
+  }
 }
 
 .menu {
@@ -360,12 +401,13 @@ body {
 }
 
 .hero {  
-
+  color: var(--color-white);
   &-content {
     width: 525px;
     padding-top: 120px;
     padding-left: 60px;
     padding-bottom: 330px;
+
 
     @media(max-width: 768px) {
       width: 390px;
@@ -460,6 +502,7 @@ body {
     font-weight: bold;
     margin-bottom: 20px;
     line-height: 40px;
+    letter-spacing: 0.020em; //thanks to @janchorny 
   }
 
   &__desc {
@@ -491,8 +534,8 @@ body {
 
   &-btns {
     border: 2px solid var(--color-gold);
-    color: var(--color-gold);
-    background-color: var(--color-black);
+    color: var(--color-main);
+    background-color: var(--color-bg);
   }
 
   &-btns--active {
@@ -515,7 +558,7 @@ body {
 }
 
 .video {
-  &--player {
+  &__player {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -717,6 +760,7 @@ body {
   justify-content: space-between;
   padding: 50px 20px;
   line-height: 50px;
+  background-color: var(--color-black);
 
   @media(max-width: 768px) {
     flex-direction: column;

@@ -1,6 +1,9 @@
 :root {
   --color-gold: #bdae82;
   --color-black: #000;
+  --color-main: #bdae82;
+  --color-bg: #000;
+  --color-hover: #fff;
   --color-white: #fff;
   --font-big: 60px;
   --font-medium: 50px;
@@ -22,7 +25,7 @@ html {
 }
 
 body {
-  background-color: var(--color-black);
+  background-color: var(--color-bg);
   color: var(--color-white);
   font-family: "Inter", sans-serif;
   font-style: normal;
@@ -45,6 +48,41 @@ body {
   box-sizing: inherit;
 }
 
+.light-theme {
+  --color-bg: #fff;
+}
+.light-theme .theme {
+  background-image: url("../assets/svg/theme-dark.svg");
+}
+@media (max-width: 768px) {
+  .light-theme .menu--active span {
+    background: var(--color-black);
+  }
+}
+.light-theme .menu--active .nav__list {
+  background: var(--color-white);
+}
+.light-theme .menu--active .nav__link {
+  color: var(--color-black);
+}
+.light-theme .skills,
+.light-theme .portfolio,
+.light-theme .video-s,
+.light-theme .price {
+  --color-main: #000;
+  color: var(--color-black);
+}
+.light-theme .btn {
+  background: var(--color-gold);
+  color: var(--color-black);
+}
+.light-theme .portfolio-btns--active {
+  color: var(--color-white);
+}
+.light-theme .portfolio-btns:hover {
+  background: var(--color-gold);
+}
+
 .h1 {
   font-family: "Merriweather", serif;
 }
@@ -53,7 +91,7 @@ body {
   min-width: 220px;
   min-height: 55px;
   padding: 8px auto;
-  background-color: var(--color-gold);
+  background-color: var(--color-main);
   cursor: pointer;
   line-height: var(--font2);
   border: none;
@@ -61,7 +99,7 @@ body {
 }
 
 .btn:hover {
-  color: var(--color-white);
+  color: var(--color-hover);
 }
 
 .link {
@@ -232,6 +270,20 @@ body {
   }
 }
 
+.theme {
+  width: 45px;
+  height: 45px;
+  margin-left: 28px;
+  background-image: url("../assets/svg/theme-light.svg");
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+@media (max-width: 768px) {
+  .theme {
+    margin-right: 30px;
+  }
+}
+
 .menu {
   display: none;
   visibility: hidden;
@@ -292,7 +344,7 @@ body {
   justify-content: center;
   width: 700px;
   margin: 100px auto 60px auto;
-  background-image: linear-gradient(to top, var(--color-black) calc(50% - 1px), var(--color-gold) calc(50% - 1px), var(--color-gold) calc(50% + 1px), var(--color-black) calc(50% + 1px));
+  background-image: linear-gradient(to top, var(--color-bg) calc(50% - 1px), var(--color-main) calc(50% - 1px), var(--color-main) calc(50% + 1px), var(--color-bg) calc(50% + 1px));
 }
 @media (max-width: 768px) {
   .section-title-wrap {
@@ -311,8 +363,8 @@ body {
   font-weight: bold;
   font-size: var(--font-normal);
   line-height: 80px;
-  color: var(--color-gold);
-  background-color: var(--color-black);
+  color: var(--color-main);
+  background-color: var(--color-bg);
   padding: 0 20px;
 }
 @media (max-width: 768px) {
@@ -321,6 +373,9 @@ body {
   }
 }
 
+.hero {
+  color: var(--color-white);
+}
 .hero-content {
   width: 525px;
   padding-top: 120px;
@@ -418,6 +473,7 @@ body {
   font-weight: bold;
   margin-bottom: 20px;
   line-height: 40px;
+  letter-spacing: 0.02em;
 }
 .skills__desc {
   padding: 0 20px;
@@ -442,8 +498,8 @@ body {
 }
 .portfolio-btns {
   border: 2px solid var(--color-gold);
-  color: var(--color-gold);
-  background-color: var(--color-black);
+  color: var(--color-main);
+  background-color: var(--color-bg);
 }
 .portfolio-btns--active {
   color: var(--color-black);
@@ -660,6 +716,7 @@ body {
   justify-content: space-between;
   padding: 50px 20px;
   line-height: 50px;
+  background-color: var(--color-black);
 }
 @media (max-width: 768px) {
   .container-footer {
