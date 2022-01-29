@@ -1,3 +1,4 @@
+@import './normalize';
 @import './mixins.scss';
 
 :root {
@@ -75,8 +76,30 @@ body {
   .menu--active {
     span {
       @media(max-width: 768px) { 
-        background: var(--color-wt-black);
+        background: var(--color-wt-black);                
       }
+    }
+    &:hover {
+      animation: close-menu 1s;
+      color: var(--color-gold);
+    }
+
+    @keyframes close-menu {
+      0% {
+        transform: rotate(0deg);
+      }
+      25% {
+        transform: rotate(45deg);
+      }
+      50% {
+        transform: rotate(180deg);
+      }
+      75% {
+        transform: rotate(270deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }        
     }
   }
 
@@ -91,8 +114,7 @@ body {
         @include hover;
 
         &:hover{
-          text-decoration: underline;
-          transition: var(--animation-duration);
+          color: var(--color-gold);
         }
       }
     }
@@ -293,7 +315,11 @@ body {
 
   &__en,
   &__ru {
-    @include hover;
+    @include hover;  
+
+    &:hover {
+      transform: scale(1.3);
+    }
   }
 
   @media(max-width: 768px) {
