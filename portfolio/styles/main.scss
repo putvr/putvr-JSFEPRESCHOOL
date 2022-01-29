@@ -1,11 +1,18 @@
 :root {
   --color-gold: #bdae82;
   --color-black: #000;
+
+  --color-main: #bdae82;
+  --color-bg: #000;
+  --color-hover: #fff;
+  
   --color-white: #fff;
+
   --font-big: 60px;
   --font-medium: 50px;
   --font-normal: 40px;
   --font-small: 20px;
+
   --animation-duration: 0.5s;
 
   @media(max-width: 768px) {
@@ -21,7 +28,7 @@ html {
 }
 
 body {
-  background-color: var(--color-black);
+  background-color: var(--color-bg);
   color: var(--color-white);
   font-family: 'Inter', sans-serif;
   font-style: normal;
@@ -43,8 +50,73 @@ body {
   box-sizing: inherit;
 }
 
+.light-theme {  
+  --color-bg: #fff;
+  
+  .theme {
+    background-image: url('../assets/svg/theme-light.svg');
+  }
+
+  .menu--active {
+    span {
+      @media(max-width: 768px) { 
+        background: var(--color-black);
+      }
+    }
+    .nav__list{
+      background: var(--color-white);   
+    }
+
+    .nav__link {
+      color: var(--color-black);
+    }
+  }
+  
+  .skills,
+  .portfolio, 
+  .video-s, 
+  .price {
+    --color-main: #000;
+    color: var(--color-black);
+  }
+  .btn {
+    background: var(--color-gold);
+    color: var(--color-black);
+  }
+
+  .portfolio-btns {
+    background: var(--color-white);
+    &--active {
+      color: var(--color-white);
+      background: var(--color-gold);
+    }
+
+    &:hover {
+      background: var(--color-gold);
+    }
+  }
+
+}
+
 .h1 {
   font-family: 'Merriweather', serif;  
+}
+
+@mixin focus-decoration {
+  box-shadow: 0 0 0 1em rgba(255, 255, 255, 0);
+  animation: pulse 1s;
+
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 var(--color-gold);
+    }
+  }
+
+}
+
+@mixin hover-decoration {
+  box-shadow: 0 0.7em 0.7em -0.4em var(--color-gold);
+  transform: translatey(-0.1em);
 }
 
 .btn {
@@ -52,15 +124,20 @@ body {
   min-height: 55px;
   padding: 8px auto;
 
-  background-color: var(--color-gold);
+  background-color: var(--color-main);
   cursor: pointer;
   line-height: var(--font2);
   border: none;
   transition: 1s;  
-}
 
-.btn:hover {
-  color: var(--color-white);
+  &:hover {
+    color: var(--color-hover);
+    @include hover-decoration;
+  }
+
+  &:focus{
+    @include focus-decoration;    
+  }
 }
 
 .link {
@@ -75,6 +152,7 @@ body {
 
 .img-hover {
   transition: 1s;
+  cursor: pointer;  
 
   &:hover {
     filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
@@ -217,20 +295,27 @@ body {
   border: none;
   background-color: transparent;
   line-height: var(--font-medium);
-  cursor: pointer;  
+  // 
 
   &-active {
     color: var(--color-gold);
   }
 
   @media(max-width: 768px) {
-    width: 82px;
     margin-left: auto;
-    margin-right: 20px;
-    
-    &__div {
-      transform: translateX(-5px);
-    }
+  }
+}
+
+.theme {
+  width: 45px;
+  height: 45px;
+  margin-left: 28px;
+  background-image: url('../assets/svg/theme-dark.svg');
+  background-repeat: no-repeat;
+  cursor: pointer;
+
+  @media(max-width: 768px) {
+    margin-right: 30px;
   }
 }
 
@@ -294,21 +379,20 @@ body {
 }
 
 .section {
-  overflow: hidden;
+  // overflow: hidden;
 
   &-title-wrap { 
     display: flex;
     justify-content: center;
-    // width: calc(100% / 2 + 40px);
     width: 700px;
     margin: 100px auto 60px auto;
 
     background-image: 
       linear-gradient(to top, 
-      var(--color-black) calc(100% / 2 - 1px), 
-      var(--color-gold) calc(100% / 2 - 1px), 
-      var(--color-gold) calc(100% / 2 + 1px), 
-      var(--color-black) calc(100% / 2 + 1px));
+      var(--color-bg) calc(100% / 2 - 1px), 
+      var(--color-main) calc(100% / 2 - 1px), 
+      var(--color-main) calc(100% / 2 + 1px), 
+      var(--color-bg) calc(100% / 2 + 1px));
     
       @media(max-width: 768px) {
         width: 365px;
@@ -325,8 +409,8 @@ body {
     font-weight: bold;
     font-size: var(--font-normal);
     line-height: 80px;
-    color: var(--color-gold);
-    background-color: var(--color-black);
+    color: var(--color-main);
+    background-color: var(--color-bg);
     padding: 0 20px;
 
     @media(max-width: 768px) {
@@ -336,12 +420,13 @@ body {
 }
 
 .hero {  
-
+  color: var(--color-white);
   &-content {
     width: 525px;
     padding-top: 120px;
     padding-left: 60px;
     padding-bottom: 330px;
+
 
     @media(max-width: 768px) {
       width: 390px;
@@ -436,6 +521,7 @@ body {
     font-weight: bold;
     margin-bottom: 20px;
     line-height: 40px;
+    letter-spacing: 0.020em; //thanks to @janchorny 
   }
 
   &__desc {
@@ -467,8 +553,8 @@ body {
 
   &-btns {
     border: 2px solid var(--color-gold);
-    color: var(--color-gold);
-    background-color: var(--color-black);
+    color: var(--color-main);
+    background-color: var(--color-bg);
   }
 
   &-btns--active {
@@ -508,7 +594,6 @@ body {
     }
     @media(max-width: 480px) {
       width: 100%;
-      // height: auto;
       background-position: 30% 0;
     }
   }
@@ -694,6 +779,7 @@ body {
   justify-content: space-between;
   padding: 50px 20px;
   line-height: 50px;
+  background-color: var(--color-black);
 
   @media(max-width: 768px) {
     flex-direction: column;
