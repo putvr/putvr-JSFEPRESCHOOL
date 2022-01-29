@@ -127,6 +127,7 @@ body {
 
 .img-hover {
   transition: 1s;
+  cursor: pointer;
 }
 .img-hover:hover {
   filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
@@ -268,7 +269,6 @@ body {
   border: none;
   background-color: transparent;
   line-height: var(--font-medium);
-  cursor: pointer;
 }
 .lang-active {
   color: var(--color-gold);

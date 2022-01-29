@@ -52,7 +52,7 @@ body {
 
 .light-theme {  
   --color-bg: #fff;
-
+  
   .theme {
     background-image: url('../assets/svg/theme-light.svg');
   }
@@ -102,6 +102,23 @@ body {
   font-family: 'Merriweather', serif;  
 }
 
+@mixin focus-decoration {
+  box-shadow: 0 0 0 1em rgba(255, 255, 255, 0);
+  animation: pulse 1s;
+
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 var(--color-gold);
+    }
+  }
+
+}
+
+@mixin hover-decoration {
+  box-shadow: 0 0.7em 0.7em -0.4em var(--color-gold);
+  transform: translatey(-0.1em);
+}
+
 .btn {
   min-width: 220px;
   min-height: 55px;
@@ -112,10 +129,15 @@ body {
   line-height: var(--font2);
   border: none;
   transition: 1s;  
-}
 
-.btn:hover {
-  color: var(--color-hover);
+  &:hover {
+    color: var(--color-hover);
+    @include hover-decoration;
+  }
+
+  &:focus{
+    @include focus-decoration;    
+  }
 }
 
 .link {
@@ -130,6 +152,7 @@ body {
 
 .img-hover {
   transition: 1s;
+  cursor: pointer;  
 
   &:hover {
     filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
@@ -272,7 +295,7 @@ body {
   border: none;
   background-color: transparent;
   line-height: var(--font-medium);
-  cursor: pointer;  
+  // 
 
   &-active {
     color: var(--color-gold);
@@ -356,7 +379,7 @@ body {
 }
 
 .section {
-  overflow: hidden;
+  // overflow: hidden;
 
   &-title-wrap { 
     display: flex;
