@@ -128,14 +128,6 @@ body {
   color: var(--color-gold);
 }
 
-.img-hover {
-  transition: 1s;
-  cursor: pointer;
-}
-.img-hover:hover {
-  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
-}
-
 .bg {
   background-image: url("../assets/img/header-bg.jpg");
   background-repeat: no-repeat;
@@ -194,6 +186,14 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+}
+
+.logo {
+  transition: 1s;
+  cursor: pointer;
+}
+.logo:hover {
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
 }
 
 .nav {
@@ -276,6 +276,13 @@ body {
 .lang-active {
   color: var(--color-gold);
 }
+.lang__en, .lang__ru {
+  transition: 1s;
+  cursor: pointer;
+}
+.lang__en:hover, .lang__ru:hover {
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+}
 @media (max-width: 768px) {
   .lang {
     margin-left: auto;
@@ -288,7 +295,11 @@ body {
   margin-left: 28px;
   background-image: url("../assets/svg/theme-dark.svg");
   background-repeat: no-repeat;
+  transition: 1s;
   cursor: pointer;
+}
+.theme:hover {
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
 }
 @media (max-width: 768px) {
   .theme {
@@ -299,6 +310,11 @@ body {
 .menu {
   display: none;
   visibility: hidden;
+  transition: 1s;
+  cursor: pointer;
+}
+.menu:hover {
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
 }
 @media (max-width: 768px) {
   .menu {
@@ -551,6 +567,7 @@ body {
 .video__btn {
   background: transparent;
   border: none;
+  transition: 1s;
   cursor: pointer;
 }
 .video__btn img {
@@ -562,6 +579,9 @@ body {
     width: 64px;
     height: 64px;
   }
+}
+.video__btn:hover {
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
 }
 
 .price {
@@ -762,6 +782,11 @@ body {
   display: block;
   width: 32px;
   height: 32px;
+  transition: 1s;
+  cursor: pointer;
+}
+.social__img:hover {
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
 }
 
 .social__img--ins {
