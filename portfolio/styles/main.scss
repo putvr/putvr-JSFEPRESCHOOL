@@ -7,6 +7,7 @@
   --color-hover: #fff;
   
   --color-white: #fff;
+  --color-wt-black: #1C1C1C;
 
   --font-big: 60px;
   --font-medium: 50px;
@@ -56,21 +57,6 @@ body {
   .theme {
     background-image: url('../assets/svg/theme-light.svg');
   }
-
-  .menu--active {
-    span {
-      @media(max-width: 768px) { 
-        background: var(--color-black);
-      }
-    }
-    .nav__list{
-      background: var(--color-white);   
-    }
-
-    .nav__link {
-      color: var(--color-black);
-    }
-  }
   
   .skills,
   .portfolio, 
@@ -82,6 +68,26 @@ body {
   .btn {
     background: var(--color-gold);
     color: var(--color-black);
+  }
+
+  .menu--active {
+    span {
+      @media(max-width: 768px) { 
+        background: var(--color-wt-black);
+      }
+    }
+  }
+
+  .nav--menu {
+    @media(max-width: 768px) { 
+      .nav__list{
+        background: var(--color-white);   
+      }
+
+      .nav__link {
+        color: var(--color-wt-black);
+      }
+    }
   }
 
   .portfolio-btns {
@@ -358,7 +364,7 @@ body {
       }
       
       span:first-child {
-        transform: rotate(45deg) translateY(12px);      
+        transform: translateY(12px) rotate(45deg) ;      
       }
       
       span:nth-last-child(2) {
