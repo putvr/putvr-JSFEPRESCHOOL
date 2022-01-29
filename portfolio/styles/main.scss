@@ -1,3 +1,5 @@
+@import './mixins.scss';
+
 :root {
   --color-gold: #bdae82;
   --color-black: #000;
@@ -80,12 +82,18 @@ body {
 
   .nav--menu {
     @media(max-width: 768px) { 
-      .nav__list{
-        background: var(--color-white);   
+      .nav__list {
+        background: var(--color-white);           
       }
 
       .nav__link {
-        color: var(--color-wt-black);
+        color: var(--color-wt-black);        
+        @include hover;
+
+        &:hover{
+          text-decoration: underline;
+          transition: var(--animation-duration);
+        }
       }
     }
   }
@@ -101,28 +109,10 @@ body {
       background: var(--color-gold);
     }
   }
-
 }
 
 .h1 {
   font-family: 'Merriweather', serif;  
-}
-
-@mixin focus-decoration {
-  box-shadow: 0 0 0 1em rgba(255, 255, 255, 0);
-  animation: pulse 1s;
-
-  @keyframes pulse {
-    0% {
-      box-shadow: 0 0 0 0 var(--color-gold);
-    }
-  }
-
-}
-
-@mixin hover-decoration {
-  box-shadow: 0 0.7em 0.7em -0.4em var(--color-gold);
-  transform: translatey(-0.1em);
 }
 
 .btn {
@@ -153,15 +143,6 @@ body {
 
   &:hover {
     color: var(--color-gold);
-  }
-}
-
-@mixin hover {
-  transition: 1s;
-  cursor: pointer;  
-
-  &:hover {
-    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
   }
 }
 
