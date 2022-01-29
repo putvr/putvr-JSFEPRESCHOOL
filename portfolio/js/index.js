@@ -1,150 +1,150 @@
 /* Exercitium II */
 
-const menu = document.querySelector('.menu');
-const list = document.querySelector('.nav');
+const menu = document.querySelector(".menu");
+const list = document.querySelector(".nav");
 
-menu.addEventListener('click', ()=> {
-  menu.classList.toggle('menu--active');
-  list.classList.toggle('nav--menu');
+menu.addEventListener("click", () => {
+  menu.classList.toggle("menu--active");
+  list.classList.toggle("nav--menu");
 });
 
-list.addEventListener('click', ({target}) => {
-  if(target.nodeName != 'A') return;
+list.addEventListener("click", ({
+  target
+}) => {
+  if (target.nodeName != "A") return;
 
-  menu.classList.remove('menu--active');
-  list.classList.remove('nav--menu');
+  menu.classList.remove("menu--active");
+  list.classList.remove("nav--menu");
 });
 
 /* Exercitium III */
 const config = {
-  theme: 'dark', 
-  lang: 'en',
+  theme: "dark",
+  lang: "en",
 };
 
-const state =  {};
+const state = {};
 
-const portfolioImages = document.querySelectorAll('.portfolio-img');
-const portfolioBtns = document.querySelector('.portfolio-btns-list');
+const portfolioImages = document.querySelectorAll(".portfolio-img");
+const portfolioBtns = document.querySelector(".portfolio-btns-list");
 
-let activePortfolioBtn = document.querySelector('.portfolio-btns--active');
+let activePortfolioBtn = document.querySelector(".portfolio-btns--active");
 
-portfolioBtns.addEventListener('click', ({ target }) => {
+portfolioBtns.addEventListener("click", ({
+  target
+}) => {
   const season = target.dataset.season;
-  portfolioImages.forEach((images, idx) => (images.src = `assets/img/${season}/${idx + 1}.jpg`));
+  portfolioImages.forEach(
+    (images, idx) => (images.src = `assets/img/${season}/${idx + 1}.jpg`)
+  );
 
-  activePortfolioBtn.classList.toggle('portfolio-btns--active');
+  activePortfolioBtn.classList.toggle("portfolio-btns--active");
   activePortfolioBtn = target;
-  target.classList.toggle('portfolio-btns--active');
+  target.classList.toggle("portfolio-btns--active");
 });
 
-
 // preload
-const seasons = ['winter', 'spring', 'summer', 'autumn'];
+const seasons = ["winter", "spring", "summer", "autumn"];
+
 function preloadImages() {
-  seasons.forEach(s => {
-    for(let i = 1; i <= 6; i++) {
+  seasons.forEach((s) => {
+    for (let i = 1; i <= 6; i++) {
       const img = new Image();
       img.src = `./assets/img/${s}/${i}.jpg`;
     }
-  })
+  });
 }
 preloadImages();
 
 // i18n
-import i18Obj from './translate.js';
+import i18Obj from "./translate.js";
 
-const langSwither = document.querySelector('.lang');
-langSwither.addEventListener('click', handleLangSwitch);
+const langSwither = document.querySelector(".lang");
+langSwither.addEventListener("click", handleLangSwitch);
 
-function handleLangSwitch ({ target }) {
-  if(!target.dataset.lang) {
+function handleLangSwitch({
+  target
+}) {
+  if (!target.dataset.lang) {
     return;
   }
-  if(target.dataset.lang === state.lang) {
+  if (target.dataset.lang === state.lang) {
     return;
   }
 
-  state.langSwitherActive.classList.toggle('lang-active'); 
+  state.langSwitherActive.classList.toggle("lang-active");
   state.langSwitherActive = target;
 
-
-  setTranslate(target.dataset.lang); 
-  target.classList.toggle('lang-active'); 
-};
-
+  setTranslate(target.dataset.lang);
+  target.classList.toggle("lang-active");
+}
 
 function setTranslate(switchToLang) {
-  const elems = document.querySelectorAll('[data-i18]');
+  const elems = document.querySelectorAll("[data-i18]");
 
   config.lang = switchToLang;
-  elems.forEach(e => {
+  elems.forEach((e) => {
     e.textContent = i18Obj[config.lang][e.dataset.i18];
     if (e.placeholder) {
-      e.textContent = '';
+      e.textContent = "";
       e.placeholder = i18Obj[config.lang][e.dataset.i18];
     }
   });
 
-  localStorage.setItem('lang', config.lang);
+  localStorage.setItem("lang", config.lang);
 }
 
-
-
 // theme
-const themeSwither = document.querySelector('.theme');
-themeSwither.addEventListener('click', ({ target }) => {
-  const swichToTheme = (config.theme === 'light') ? 'dark' : 'light';
-  setTheme(swichToTheme);  
+const themeSwither = document.querySelector(".theme");
+themeSwither.addEventListener("click", ({
+  target
+}) => {
+  const swichToTheme = config.theme === "light" ? "dark" : "light";
+  setTheme(swichToTheme);
 });
 
-function setTheme(newTheme) {  
+function setTheme(newTheme) {
   document.body.classList.toggle(`${config.theme}-theme`);
 
   config.theme = newTheme;
   document.body.classList.toggle(`${config.theme}-theme`);
 
-  localStorage.setItem('theme', newTheme);
+  localStorage.setItem("theme", newTheme);
 }
 
 // local storage
-function getConfig() {  
-  let theme = localStorage.getItem('theme') ?? config.theme;
+function getConfig() {
+  let theme = localStorage.getItem("theme") ?? config.theme;
   setTheme(theme);
 
-  let lang = localStorage.getItem('lang');  
+  let lang = localStorage.getItem("lang");
   state.langSwitherActive = document.querySelector(`.lang-active`);
 
-  if(lang || lang !== config.lang) {
+  if (lang || lang !== config.lang) {
     const z = document.querySelector(`.lang__${lang}`);
     z.click();
   }
-  // console.log(config, state);
 }
 
-window.addEventListener('load', getConfig);
+window.addEventListener("load", getConfig);
 
-/* gradus  */ 
-console.log('%c Ваша отметка - 85 балла(ов) ', 'background: #222; color: #bada55');
+/* gradus  */
+console.log(
+  "%c Ваша отметка - 85 балла(ов) ",
+  "background: #222; color: #bada55"
+);
 
 console.log(`
 1) Смена изображений в секции portfolio +25
-Изображения разных времён года получаем из папок с соответствующими названиями
-Изображения можно заменить на другие с целью улучшения качества созданного приложения
-
     при кликах по кнопкам Winter, Spring, Summer, Autumn в секции portfolio отображаются изображения из папки с соответствующим названием +20
     кнопка, по которой кликнули, становится активной т.е. выделяется стилем. Другие кнопки при этом будут неактивными +5
 
 2) Перевод страницы на два языка +25
-Для перевода можно воспользоваться файлом translate.js
-Содержание файла можно редактировать или полностью изменить с целью улучшения качества созданного приложения
-
     при клике по надписи ru англоязычная страница переводится на русский язык +10
     при клике по надписи en русскоязычная страница переводится на английский язык +10
     надписи en или ru, соответствующие текущему языку страницы, становятся активными т.е. выделяются стилем +5
 
 3) Переключение светлой и тёмной темы +25
-Внешний вид тёмной темы соответствует макету, который верстали в предыдущих частях задания, внешний вид светлой темы соответствует одному из двух вариантов макетов на выбор. Баллы за оба варианта одинаковые, выбирайте тот, который больше нравится.
-
     Вариант первый. Блоки и секции header, hero, contacts, footer остались без изменений, в оставшихся секциях цвет фона и шрифта поменялись местами: фон стал белым, шрифт черным Макет в figma - светлая тема - 1
 
     На страницу добавлен переключатель при клике по которому:
