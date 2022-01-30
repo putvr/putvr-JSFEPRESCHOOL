@@ -90,6 +90,7 @@ function setTranslate(switchToLang) {
       e.placeholder = i18Obj[config.lang][e.dataset.i18];
     }
   });
+  document.querySelector('html').setAttribute('lang', switchToLang);
 
   localStorage.setItem("lang", config.lang);
 }
@@ -130,7 +131,7 @@ window.addEventListener("load", getConfig);
 
 /* gradus  */
 console.log(
-  "%c Ваша отметка - 85 балла(ов) ",
+  "%c Ваша отметка - 85 баллов",
   "background: #222; color: #bada55"
 );
 

@@ -382,80 +382,12 @@ body {
   }
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   margin: 0;
   padding: 0;
   box-sizing: inherit;
-}
-
-.light-theme {
-  --color-bg: #fff;
-}
-.light-theme .theme {
-  background-image: url("../assets/svg/theme-light.svg");
-}
-.light-theme .skills,
-.light-theme .portfolio,
-.light-theme .video-s,
-.light-theme .price {
-  --color-main: #000;
-  color: var(--color-black);
-}
-.light-theme .btn {
-  background: var(--color-gold);
-  color: var(--color-black);
-}
-@media (max-width: 768px) {
-  .light-theme .menu--active span {
-    background: var(--color-wt-black);
-  }
-}
-.light-theme .menu--active:hover {
-  animation: close-menu 1s;
-  color: var(--color-gold);
-}
-@keyframes close-menu {
-  0% {
-    transform: rotate(0deg);
-  }
-  25% {
-    transform: rotate(45deg);
-  }
-  50% {
-    transform: rotate(180deg);
-  }
-  75% {
-    transform: rotate(270deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-@media (max-width: 768px) {
-  .light-theme .nav--menu .nav__list {
-    background: var(--color-white);
-  }
-  .light-theme .nav--menu .nav__link {
-    color: var(--color-wt-black);
-    transition: 1s;
-    cursor: pointer;
-  }
-  .light-theme .nav--menu .nav__link:hover {
-    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
-  }
-  .light-theme .nav--menu .nav__link:hover {
-    color: var(--color-gold);
-  }
-}
-.light-theme .portfolio-btns {
-  background: var(--color-white);
-}
-.light-theme .portfolio-btns--active {
-  color: var(--color-white);
-  background: var(--color-gold);
-}
-.light-theme .portfolio-btns:hover {
-  background: var(--color-gold);
 }
 
 .h1 {
@@ -1153,6 +1085,7 @@ body {
   display: block;
   width: 32px;
   height: 32px;
+  background-repeat: no-repeat;
   transition: 1s;
   cursor: pointer;
 }
@@ -1162,22 +1095,96 @@ body {
 
 .social__img--ins {
   background-image: url("../assets/svg/social-ins.svg");
-  background-repeat: no-repeat;
 }
 
 .social__img--fb {
   background-image: url("../assets/svg/social-fb.svg");
-  background-repeat: no-repeat;
 }
 
 .social__img--tw {
   background-image: url("../assets/svg/social-tw.svg");
-  background-repeat: no-repeat;
 }
 
 .social__img--pin {
   background-image: url("../assets/svg/social-pin.svg");
-  background-repeat: no-repeat;
+}
+
+.light-theme {
+  --color-bg: #fff;
+  --bg-top: 910px;
+  --bg-bottom: 4682px;
+  background-image: url("../assets/img/header-bg.jpg"), linear-gradient(to bottom, var(--color-black) var(--bg-top), var(--color-white) var(--bg-top), var(--color-white) var(--bg-bottom), var(--color-black) var(--bg-bottom));
+}
+@media (max-width: 1440px) {
+  .light-theme {
+    background-image: url("../assets/img/header-bg.jpg");
+  }
+}
+.light-theme .theme {
+  background-image: url("../assets/svg/theme-light.svg");
+}
+.light-theme .skills,
+.light-theme .portfolio,
+.light-theme .video-s,
+.light-theme .price {
+  --color-main: #000;
+  color: var(--color-black);
+}
+.light-theme .btn {
+  background: var(--color-gold);
+  color: var(--color-black);
+}
+@media (max-width: 768px) {
+  .light-theme .menu--active span {
+    background: var(--color-wt-black);
+  }
+}
+.light-theme .menu--active:hover {
+  animation: close-menu 1s;
+  color: var(--color-gold);
+}
+@keyframes close-menu {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(45deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@media (max-width: 768px) {
+  .light-theme .nav--menu .nav__list {
+    background: var(--color-white);
+  }
+  .light-theme .nav--menu .nav__link {
+    color: var(--color-wt-black);
+    transition: 1s;
+    cursor: pointer;
+  }
+  .light-theme .nav--menu .nav__link:hover {
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+  }
+  .light-theme .nav--menu .nav__link:hover {
+    color: var(--color-gold);
+  }
+}
+.light-theme .portfolio-btns {
+  background: var(--color-white);
+}
+.light-theme .portfolio-btns--active {
+  color: var(--color-white);
+  background: var(--color-gold);
+}
+.light-theme .portfolio-btns:hover {
+  background: var(--color-gold);
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -56,92 +56,6 @@ body {
   box-sizing: inherit;
 }
 
-.light-theme {
-  --color-bg: #fff;
-
-  .theme {
-    background-image: url('../assets/svg/theme-light.svg');
-  }
-
-  .skills,
-  .portfolio,
-  .video-s,
-  .price {
-    --color-main: #000;
-    color: var(--color-black);
-  }
-
-  .btn {
-    background: var(--color-gold);
-    color: var(--color-black);
-  }
-
-  .menu--active {
-    span {
-      @media(max-width: 768px) {
-        background: var(--color-wt-black);
-      }
-    }
-
-    &:hover {
-      animation: close-menu 1s;
-      color: var(--color-gold);
-    }
-
-    @keyframes close-menu {
-      0% {
-        transform: rotate(0deg);
-      }
-
-      25% {
-        transform: rotate(45deg);
-      }
-
-      50% {
-        transform: rotate(180deg);
-      }
-
-      75% {
-        transform: rotate(270deg);
-      }
-
-      100% {
-        transform: rotate(360deg);
-      }
-    }
-  }
-
-  .nav--menu {
-    @media(max-width: 768px) {
-      .nav__list {
-        background: var(--color-white);
-      }
-
-      .nav__link {
-        color: var(--color-wt-black);
-        @include hover;
-
-        &:hover {
-          color: var(--color-gold);
-        }
-      }
-    }
-  }
-
-  .portfolio-btns {
-    background: var(--color-white);
-
-    &--active {
-      color: var(--color-white);
-      background: var(--color-gold);
-    }
-
-    &:hover {
-      background: var(--color-gold);
-    }
-  }
-}
-
 .h1 {
   font-family: 'Merriweather', serif;
 }
@@ -854,25 +768,123 @@ body {
   display: block;
   width: 32px;
   height: 32px;
+  background-repeat: no-repeat;
+
   @include hover;
 }
 
 .social__img--ins {
   background-image: url("../assets/svg/social-ins.svg");
-  background-repeat: no-repeat;
 }
 
 .social__img--fb {
   background-image: url("../assets/svg/social-fb.svg");
-  background-repeat: no-repeat;
 }
 
 .social__img--tw {
   background-image: url("../assets/svg/social-tw.svg");
-  background-repeat: no-repeat;
 }
 
 .social__img--pin {
   background-image: url("../assets/svg/social-pin.svg");
-  background-repeat: no-repeat;
+}
+
+.light-theme {
+  --color-bg: #fff;
+  --bg-top: 910px;
+  --bg-bottom: 4682px;
+
+  background-image:
+    url('../assets/img/header-bg.jpg'),
+    linear-gradient(to bottom,
+      var(--color-black) var(--bg-top),
+      var(--color-white) var(--bg-top),
+      var(--color-white) var(--bg-bottom),
+      var(--color-black) var(--bg-bottom));
+
+  @media(max-width: 1440px) {
+    background-image: url('../assets/img/header-bg.jpg'),
+  }
+
+  .theme {
+    background-image: url('../assets/svg/theme-light.svg');
+  }
+
+  .skills,
+  .portfolio,
+  .video-s,
+  .price {
+    --color-main: #000;
+    color: var(--color-black);
+  }
+
+  .btn {
+    background: var(--color-gold);
+    color: var(--color-black);
+  }
+
+  .menu--active {
+    span {
+      @media(max-width: 768px) {
+        background: var(--color-wt-black);
+      }
+    }
+
+    &:hover {
+      animation: close-menu 1s;
+      color: var(--color-gold);
+    }
+
+    @keyframes close-menu {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      25% {
+        transform: rotate(45deg);
+      }
+
+      50% {
+        transform: rotate(180deg);
+      }
+
+      75% {
+        transform: rotate(270deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  }
+
+  .nav--menu {
+    @media(max-width: 768px) {
+      .nav__list {
+        background: var(--color-white);
+      }
+
+      .nav__link {
+        color: var(--color-wt-black);
+        @include hover;
+
+        &:hover {
+          color: var(--color-gold);
+        }
+      }
+    }
+  }
+
+  .portfolio-btns {
+    background: var(--color-white);
+
+    &--active {
+      color: var(--color-white);
+      background: var(--color-gold);
+    }
+
+    &:hover {
+      background: var(--color-gold);
+    }
+  }
 }
