@@ -77,6 +77,8 @@ function handleLangSwitch({
 
   setTranslate(target.dataset.lang);
   target.classList.toggle("lang-active");
+
+  fixBg();
 }
 
 function setTranslate(switchToLang) {
@@ -128,6 +130,12 @@ function getConfig() {
 }
 
 window.addEventListener("load", getConfig);
+
+/* other */
+function fixBg() {
+  const h = document.body.scrollHeight - (150 + 700);
+  document.documentElement.style.setProperty('--bg-bottom', `${h}px`);
+}
 
 /* gradus  */
 console.log(
