@@ -385,7 +385,7 @@ a:hover, a:visited {
 .logo {
   width: 50px;
   height: 50px;
-  background-image: url("/assets/svg/logo.svg");
+  background-image: url("./assets/svg/logo.svg");
   background-repeat: no-repeat;
   background-size: contain;
   flex-grow: 1;

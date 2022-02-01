@@ -33,7 +33,7 @@ audioPlayer.addEventListener('click', function () {
     else {
         pauseAudio();
     }
-    console.log("Player state: ".concat(isPlaying, ". Track #").concat(currentTrack));
+    //console.log(`Player state: ${isPlaying}. Track #${currentTrack}`);
 });
 menu.addEventListener('click', function (event) {
     var target = event.target;

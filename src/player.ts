@@ -39,7 +39,7 @@ audioPlayer.addEventListener('click', () => {
     pauseAudio();
   }
  
-  console.log(`Player state: ${isPlaying}. Track #${currentTrack}`);
+  //console.log(`Player state: ${isPlaying}. Track #${currentTrack}`);
 });
 
 
