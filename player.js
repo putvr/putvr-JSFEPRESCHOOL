@@ -45,7 +45,7 @@ menu.addEventListener('click', function (event) {
     active.classList.remove('active');
     active = target;
     active.classList.add('active');
-    var bgName = "url(\"/assets/img/".concat(tracksList[num], ".jpg\")");
+    var bgName = "url(\"./assets/img/".concat(tracksList[num], ".jpg\")");
     main.style.backgroundImage = bgName;
     playAudio(num);
 });
@@ -53,7 +53,7 @@ menu.addEventListener('click', function (event) {
 function preloadImages() {
     tracksList.forEach(function (i) {
         var img = new Image();
-        img.src = "/assets/img/".concat(i, ".jpg");
+        img.src = "./assets/img/".concat(i, ".jpg");
     });
 }
 preloadImages();

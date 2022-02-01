@@ -57,7 +57,7 @@ menu.addEventListener('click', ( event ) => {
   active = target;
   active.classList.add('active');
 
-  const bgName = `url("/assets/img/${tracksList[num]}.jpg")`;  
+  const bgName = `url("./assets/img/${tracksList[num]}.jpg")`;  
   main.style.backgroundImage = bgName;
 
   playAudio(num);  
@@ -67,7 +67,7 @@ menu.addEventListener('click', ( event ) => {
 function preloadImages() {
   tracksList.forEach((i) => {    
     const img = new Image();
-    img.src = `/assets/img/${i}.jpg`;
+    img.src = `./assets/img/${i}.jpg`;
     }
   );
 }

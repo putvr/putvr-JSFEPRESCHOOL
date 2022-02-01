@@ -412,7 +412,7 @@ a:hover, a:visited {
 .player {
   width: 128px;
   height: 128px;
-  background-image: url("/assets/svg/play.svg");
+  background-image: url("./assets/svg/play.svg");
   background-color: transparent;
   background-size: cover;
   background-repeat: no-repeat;
@@ -424,11 +424,11 @@ a:hover, a:visited {
 }
 
 .audio-playing .logo {
-  background-image: url("/assets/svg/logo1.svg");
+  background-image: url("./assets/svg/logo1.svg");
   transition: 0.5s;
 }
 .audio-playing .player {
-  background-image: url("/assets/svg/pause.svg");
+  background-image: url("./assets/svg/pause.svg");
 }
 
 .footer {
