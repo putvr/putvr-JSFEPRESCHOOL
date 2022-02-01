@@ -4,6 +4,26 @@ html(lang="ru")
     meta(charset="UTF-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel="shortcut icon", href="./assets/favicon.ico", type="image/x-icon") 
     link(rel="stylesheet", href="style.css")
     title Eco sound
   body 
+    header.header 
+      a(href="/").logo.active Forest
+      nav.nav
+        ul.menu-list    
+          li.menu-list__item(data-track="1") Дрозд
+          li.menu-list__item(data-track="2") Жаворонок
+          li.menu-list__item(data-track="3") Славка
+          li.menu-list__item(data-track="4") Соловей
+          li.menu-list__item(data-track="5") Зырянка
+    main.main 
+      .player
+        //img.player__control(src="./assets/svg/play.svg", alt="play")
+    footer.footer
+      ul.footer-list
+        li
+          a(href="#") github
+        li
+          a(href="#") rs
+    script(src="player.js") 
