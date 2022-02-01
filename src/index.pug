@@ -8,22 +8,24 @@ html(lang="ru")
     link(rel="stylesheet", href="style.css")
     title Eco sound
   body 
-    header.header 
-      a(href="/").logo.active Forest
+    header.header         
       nav.nav
         ul.menu-list    
+          li.menu-list__item(data-track="0").logo.active             
           li.menu-list__item(data-track="1") Дрозд
           li.menu-list__item(data-track="2") Жаворонок
           li.menu-list__item(data-track="3") Славка
           li.menu-list__item(data-track="4") Соловей
           li.menu-list__item(data-track="5") Зырянка
+
     main.main 
-      .player
-        //img.player__control(src="./assets/svg/play.svg", alt="play")
+      .player        
+
     footer.footer
       ul.footer-list
         li
-          a(href="#") github
+          a(href="https://github.com/putvr") © 2022 github
         li
-          a(href="#") rs
+          a(href="https://rs.school/js-stage0/", title="Rolling Scopes School")
+            img(src="/assets/svg/rss.svg", alt="Rolling Scopes School", width="242" height="60")
     script(src="player.js") 

@@ -23,13 +23,13 @@ function playAudio(trackID : number) {
   audio.currentTime = 0;
   audio.play();
   isPlaying = true;
-  audioPlayer.classList.add('player--play');
+  document.body.classList.add('audio-playing');
 }
 
 function pauseAudio() {
   audio.pause();  
   isPlaying = false;
-  audioPlayer.classList.remove('player--play');
+  document.body.classList.remove('audio-playing');
 }
 
 audioPlayer.addEventListener('click', () => {
