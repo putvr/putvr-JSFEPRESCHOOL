@@ -47,9 +47,9 @@ class Player {
     this.currentTrackNumber = trackNum;
     this.trackName = this.list[trackNum];
 
-    this.audio.src = `./assets/audio/${this.trackName}`;
+    this.audio.src = `./assets/audio/${this.trackName}.mp3`;
     this.controlTrackName.innerHTML = `${this.trackName}`;
-    this.controls.children[1].innerHTML = `${this.data.artists[0]}`;
+    this.controls.children[1].innerHTML = `${this.data.artists[trackNum]}`;
 
     const bgImage = `url("./assets/img/${this.covers[trackNum]}")`;
     this.coverImage.style.backgroundImage = bgImage;
@@ -162,8 +162,24 @@ const dataDev = {
   ]
 };
 
+const dataProd = {
+  artists: [
+    'beyonce',
+    'wtf?',
+  ],
+  tracks: [
+    'beyonce',
+    'dontstartnow',
+  ],
+  covers: [
+    'dontstartnow.png',
+    'lemonade.png',
+  ]
+};
+
+
 const player = document.querySelector('.player') as HTMLAudioElement;
-const p = new Player(JSON.stringify(dataDev), player);
+const p = new Player(JSON.stringify(dataProd), player);
 
 player.addEventListener('click', (event) => {
   const target = event.target as HTMLElement;

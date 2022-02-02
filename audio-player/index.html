@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./assets/icon/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <title>Audio player</title>
+  </head>
+  <body> 
+    <main class="main">
+      <div class="main-bg"></div>
+      <div class="player"> 
+        <div class="player__info"></div>
+        <div class="player__controls"> 
+          <div class="player__play" data-player="Play"> </div>
+          <div class="player__author"></div>
+          <div class="player__track"></div>
+          <div class="player__next" data-player="Next"></div>
+          <div class="player__prev" data-player="Prev"></div>
+          <div class="player__progress-bar">
+            <div class="duration">--:--</div>
+            <input class="progress" type="range" value="0">
+            <div class="current">0:00</div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <ul class="footer-list">
+        <li><a href="https://github.com/putvr">© 2022 github</a></li>
+        <li><a href="https://rs.school/js-stage0/" title="Rolling Scopes School"><img src="./assets/svg/rss.svg" alt="Rolling Scopes School" width="242" height="60"></a></li>
+      </ul>
+    </footer>
+    <script src="player.js"> </script>
+  </body>
+</html>
