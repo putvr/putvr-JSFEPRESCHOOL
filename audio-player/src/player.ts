@@ -1,107 +1,133 @@
 interface AudioData {
-  tracks : Array<string>;
+  artists: Array<string>;
+  tracks: Array<string>;
   covers: Array<string>;
 }
 
 class Player {
-  data : AudioData;
-  list : Array<string>;
+  data: AudioData;
+  list: Array<string>;
   covers: Array<string>;
 
-  currentTrackNumber : number;
-  
-  audio : HTMLAudioElement;
-  controls : Element;
+  currentTrackNumber: number;
 
-  trackName : string;
+  audio: HTMLAudioElement;
+  controls: Element;
 
-  coverImage : HTMLElement;
-  progressBar : HTMLElement;
-  controlTrackName : Element;
+  trackName: string;
+
+  coverImage: HTMLElement;
+  progressBar: HTMLElement;
+  controlTrackName: Element;
+
+  updateProgressTimer: number;
 
 
-  constructor(initData : string, audio: HTMLAudioElement) {
+  constructor(initData: string, audio: HTMLAudioElement) {
     this.data = JSON.parse(initData);
     this.list = this.data.tracks;
     this.covers = this.data.covers;
 
     this.audio = new Audio();
     this.controls = audio.children[1];
-    
+
     this.coverImage = document.querySelector('.player__info');
+
     this.progressBar = document.querySelector('.player__progress-bar');
     this.controlTrackName = document.querySelector('.player__track');
+
+    this.progressBar.addEventListener('click', (e) => this.handleProgressBarClick(e));
 
     this.selectTrack(0);
   }
 
-  selectTrack(trackNum : number) {
-    this.currentTrackNumber = trackNum;  
+  selectTrack(trackNum: number) {
+    this.currentTrackNumber = trackNum;
     this.trackName = this.list[trackNum];
+
     this.audio.src = `./assets/audio/${this.trackName}`;
     this.controlTrackName.innerHTML = `${this.trackName}`;
+    this.controls.children[1].innerHTML = `${this.data.artists[0]}`;
+
     this.coverImage.style.backgroundImage = `url("./assets/img/${this.covers[trackNum]}")`;
 
-    setTimeout(() => {
-      this.progressBar.children[0].textContent = this.getTime(this.audio.duration);
-    }, 500);    
-
-    setInterval(() => {
-      const progressBar = this.progressBar.children[1] as HTMLElement;
-      progressBar.style.width = this.audio.currentTime / this.audio.duration * 100 + "%";
-
-      const currentTime = this.progressBar.children[2] as HTMLElement;
-      currentTime.textContent = this.getTime(this.audio.currentTime);
-
-    }, 1500);
-    console.log(this);
+    this.audio.addEventListener('loadeddata', () => {
+      this.progressBar.children[0].innerHTML = this.getTime(this.audio.duration);
+    })
   }
 
   play() {
     this.controls.classList.add('playing');
     this.audio.play();
+
+    this.updateProgressTimer = setInterval(() => {
+      // console.log(this.updateProgressTimer);
+      if (this.audio.paused) {
+        return;
+      }
+
+      const progress = this.progressBar.children[1] as HTMLInputElement;
+      progress.value = String(this.audio.currentTime / this.audio.duration * 100);
+
+      const currentTime = this.progressBar.children[2] as HTMLElement;
+      currentTime.innerHTML = this.getTime(this.audio.currentTime);
+
+    }, 500);
   }
 
   pause() {
     this.audio.pause();
     this.controls.classList.remove('playing');
+
+    if (this.updateProgressTimer) {
+      clearInterval(this.updateProgressTimer);
+    }
   }
 
-  getTime(duration : number) {
-    const toStr = (n) => (n > 10) ? `${n}` : `0${n}`;   
+  getTime(duration: number) {
+    const toStr = (n) => (n > 9) ? `${n}` : `0${n}`;
 
     const min = Math.floor(duration / 60);
     const sec = Math.floor(duration - (60 * min));
 
-    return `${toStr(min)}:${toStr(sec)}`;
+    return `${min}:${toStr(sec)}`;
   }
 
-  handlePlayClick() {  
+  handlePlayClick() {
     if (this.audio.paused) {
-      this.play();      
+      this.play();
     } else {
-      this.pause();  
-    } 
+      this.pause();
+    }
   }
 
   handleNextClick() {
-    this.pause(); 
+    this.pause();
     const next = this.currentTrackNumber > this.list.length - 2 ? 0 : this.currentTrackNumber + 1;
 
     this.selectTrack(next);
-    this.play(); 
+    this.play();
   }
 
   handlePrevClick() {
-    this.pause(); 
+    this.pause();
     const prev = this.currentTrackNumber === 0 ? this.list.length - 1 : this.currentTrackNumber - 1;
 
     this.selectTrack(prev);
-    this.play(); 
+    this.play();
+  }
+
+  handleProgressBarClick(event) {
+    const time = this.audio.duration * event.target.value / 100;
+    this.audio.currentTime = time;
+    this.play();
   }
 }
 
-const data = { 
+const data = {
+  artists: [
+    'Amon Amarth',
+  ],
   tracks: [
     '04. One Against All.mp3',
     '08. One Thousand Burning Arrows.mp3',
@@ -118,19 +144,19 @@ const data = {
     '07. At Dawn’s First Light.mp3',
   ],
   covers: [
-    'Back.jpg', 
+    'Back.jpg',
     'Front.jpg',
-    'Back.jpg', 
+    'Back.jpg',
     'Front.jpg',
-    'Back.jpg', 
+    'Back.jpg',
     'Front.jpg',
-    'Back.jpg', 
+    'Back.jpg',
     'Front.jpg',
-    'Back.jpg', 
+    'Back.jpg',
     'Front.jpg',
-    'Back.jpg', 
+    'Back.jpg',
     'Front.jpg',
-    'Back.jpg', 
+    'Back.jpg',
   ]
 };
 
@@ -141,11 +167,9 @@ player.addEventListener('click', (event) => {
   const target = event.target as HTMLElement;
   const action = target.dataset.player;
 
-  if(!action) {
+  if (!action) {
     return;
   }
-
-  console.log(action);
 
   const actionName = `handle${action}Click`;
   p[actionName]();

@@ -1,0 +1,33 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    //- link(rel="shortcut icon", href="favicon.ico", type="image/x-icon")
+    link(rel="stylesheet", href="style.css")
+    title Audio player
+  body 
+    main.main 
+      //audio()#audio 
+      .player 
+        .player__info
+        .player__controls 
+          .player__play(data-player="Play") 
+          .player__author
+          .player__track
+          .player__next(data-player="Next")
+          .player__prev(data-player="Prev")
+          .player__progress-bar
+            .duration --:--
+            input.progress(type="range", value="0")
+            .current 0:00
+
+    footer.footer
+      ul.footer-list
+        li
+          a(href="https://github.com/putvr") © 2022 github
+        li
+          a(href="https://rs.school/js-stage0/", title="Rolling Scopes School")
+            img(src="./assets/svg/rss.svg", alt="Rolling Scopes School", width="242" height="60")
+    script(src="player.js")  
