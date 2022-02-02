@@ -7,9 +7,18 @@ $color-background-1: #1E1E1F;
 $color-background-2: #8A8A8A;
 $transition-time: 0.5s;
 
-@mixin invertColor {
+@mixin controlEffects {
   filter: invert(100%);
-  // -webkit-filter: invert(100%);
+  transition: $transition-time;
+
+  &:hover {
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+  }
+
+  &:focus,
+  &:active {
+    transform: scale(1.3);
+  }
 }
 
 *,
@@ -28,11 +37,10 @@ body {
 a {
   text-decoration: none;
   color: $color-secondary;
-  // transition: $transition-time;
 
   &:hover,
   &:visited {
-    // color: $color-hover;
+    color: $color-hover;
   }
 }
 
@@ -86,7 +94,7 @@ a {
     background-repeat: no-repeat;
 
     cursor: pointer;
-    @include invertColor;
+    @include controlEffects;
   }
 
   &__author {
@@ -104,6 +112,7 @@ a {
     font-size: 20px;
     line-height: 28px;
     color: $color-secondary;
+    // overflow: hidden;
   }
 
   &__next,
@@ -118,7 +127,7 @@ a {
     background-repeat: no-repeat;
 
     cursor: pointer;
-    @include invertColor;
+    @include controlEffects;
   }
 
   &__next {
