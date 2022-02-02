@@ -19,6 +19,7 @@ class Player {
   coverImage: HTMLElement;
   progressBar: HTMLElement;
   controlTrackName: Element;
+  mainBg: HTMLElement;
 
   updateProgressTimer: number;
 
@@ -35,6 +36,7 @@ class Player {
 
     this.progressBar = document.querySelector('.player__progress-bar');
     this.controlTrackName = document.querySelector('.player__track');
+    this.mainBg = document.querySelector('.main-bg');
 
     this.progressBar.addEventListener('click', (e) => this.handleProgressBarClick(e));
 
@@ -49,7 +51,9 @@ class Player {
     this.controlTrackName.innerHTML = `${this.trackName}`;
     this.controls.children[1].innerHTML = `${this.data.artists[0]}`;
 
-    this.coverImage.style.backgroundImage = `url("./assets/img/${this.covers[trackNum]}")`;
+    const bgImage = `url("./assets/img/${this.covers[trackNum]}")`;
+    this.coverImage.style.backgroundImage = bgImage;
+    this.mainBg.style.backgroundImage = bgImage;
 
     this.audio.addEventListener('loadeddata', () => {
       this.progressBar.children[0].innerHTML = this.getTime(this.audio.duration);
@@ -61,7 +65,6 @@ class Player {
     this.audio.play();
 
     this.updateProgressTimer = setInterval(() => {
-      // console.log(this.updateProgressTimer);
       if (this.audio.paused) {
         return;
       }
@@ -71,7 +74,6 @@ class Player {
 
       const currentTime = this.progressBar.children[2] as HTMLElement;
       currentTime.innerHTML = this.getTime(this.audio.currentTime);
-
     }, 500);
   }
 
@@ -124,7 +126,7 @@ class Player {
   }
 }
 
-const data = {
+const dataDev = {
   artists: [
     'Amon Amarth',
   ],
@@ -161,7 +163,7 @@ const data = {
 };
 
 const player = document.querySelector('.player') as HTMLAudioElement;
-const p = new Player(JSON.stringify(data), player);
+const p = new Player(JSON.stringify(dataDev), player);
 
 player.addEventListener('click', (event) => {
   const target = event.target as HTMLElement;
