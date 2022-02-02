@@ -67,6 +67,8 @@ a {
   flex-grow: 1;
   align-self: center;
 
+  transition: $transition-time;
+
   &:hover {
     color: $color-hover;
   }
@@ -106,7 +108,6 @@ a {
 .audio-playing {
   .logo {
     background-image: url("./assets/svg/logo1.svg");
-    transition: $transition-time;
   }
 
   .player {
