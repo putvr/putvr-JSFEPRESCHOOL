@@ -5,7 +5,8 @@ interface AudioData {
 
 class Player {
   data : AudioData;
-  list : Array<any>;
+  list : Array<string>;
+  covers: Array<string>;
 
   currentTrackNumber : number;
   
@@ -14,16 +15,21 @@ class Player {
 
   trackName : string;
 
+  coverImage : HTMLElement;
+  progressBar : HTMLElement;
   controlTrackName : Element;
 
 
   constructor(initData : string, audio: HTMLAudioElement) {
     this.data = JSON.parse(initData);
     this.list = this.data.tracks;
+    this.covers = this.data.covers;
 
     this.audio = new Audio();
     this.controls = audio.children[1];
-
+    
+    this.coverImage = document.querySelector('.player__info');
+    this.progressBar = document.querySelector('.player__progress-bar');
     this.controlTrackName = document.querySelector('.player__track');
 
     this.selectTrack(0);
@@ -34,6 +40,21 @@ class Player {
     this.trackName = this.list[trackNum];
     this.audio.src = `./assets/audio/${this.trackName}`;
     this.controlTrackName.innerHTML = `${this.trackName}`;
+    this.coverImage.style.backgroundImage = `url("./assets/img/${this.covers[trackNum]}")`;
+
+    setTimeout(() => {
+      this.progressBar.children[0].textContent = this.getTime(this.audio.duration);
+    }, 500);    
+
+    setInterval(() => {
+      const progressBar = this.progressBar.children[1] as HTMLElement;
+      progressBar.style.width = this.audio.currentTime / this.audio.duration * 100 + "%";
+
+      const currentTime = this.progressBar.children[2] as HTMLElement;
+      currentTime.textContent = this.getTime(this.audio.currentTime);
+
+    }, 1500);
+    console.log(this);
   }
 
   play() {
@@ -44,6 +65,15 @@ class Player {
   pause() {
     this.audio.pause();
     this.controls.classList.remove('playing');
+  }
+
+  getTime(duration : number) {
+    const toStr = (n) => (n > 10) ? `${n}` : `0${n}`;   
+
+    const min = Math.floor(duration / 60);
+    const sec = Math.floor(duration - (60 * min));
+
+    return `${toStr(min)}:${toStr(sec)}`;
   }
 
   handlePlayClick() {  
@@ -87,7 +117,7 @@ const data = {
     '02. Wanderer.mp3',
     '07. At Dawn’s First Light.mp3',
   ],
-  cover: [
+  covers: [
     'Back.jpg', 
     'Front.jpg',
     'Back.jpg', 
