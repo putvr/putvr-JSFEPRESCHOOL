@@ -2,9 +2,13 @@
 
 $color-primary: #D2F657;
 $color-secondary: #fff;
-$color-hover: rgba(255, 255, 255, 0.5);
+
 $color-background-1: #1E1E1F;
 $color-background-2: #8A8A8A;
+
+$hover-filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+
+
 $transition-time: 0.5s;
 
 @mixin controlEffects {
@@ -12,7 +16,7 @@ $transition-time: 0.5s;
   transition: $transition-time;
 
   &:hover {
-    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+    filter: $hover-filter;
   }
 
   &:focus,
@@ -40,7 +44,7 @@ a {
 
   &:hover,
   &:visited {
-    color: $color-hover;
+    filter: $hover-filter;
   }
 }
 
@@ -92,16 +96,13 @@ a {
       "B B B B   B B B B   B B B B";
 
     padding: 20px 40px;
-
   }
 
   &__play {
     grid-area: P;
-    // border: 1px solid red;
     width: 80px;
     height: 80px;
 
-    // background-color: black;
     background-image: url('./assets/svg/play.png');
     background-size: contain;
     background-position: center;
@@ -126,7 +127,6 @@ a {
     font-size: 20px;
     line-height: 28px;
     color: $color-secondary;
-    // overflow: hidden;
   }
 
   &__next,
