@@ -95,6 +95,7 @@
   &--disabled .player__control,
   &--disabled .player__video {
     visibility: hidden;
+    display: none;
     transition: 1s ease-out;
   }
 

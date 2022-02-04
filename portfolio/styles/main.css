@@ -931,6 +931,7 @@ body {
 }
 .player--disabled .player__control, .player--disabled .player__video {
   visibility: hidden;
+  display: none;
   transition: 1s ease-out;
 }
 .player--playing .player__btn-play {
