@@ -1,4 +1,4 @@
-class Video {
+class CustomVideo {
 
   constructor(Element) {
     this.player = Element;
@@ -6,6 +6,7 @@ class Video {
     this.playback = document.querySelector('.player__progress');
 
     this.playbackTimerID;
+    this.enabled = false;
   }
 
   play() {
@@ -34,10 +35,8 @@ class Video {
   }
 
   handlePlaybackClick(event) {
-    this.pause();
-    const newTime = Math.floor(this.video.duration * event.target.value / 100);
+    const newTime = (this.video.duration * event.target.value / 100);
     this.video.currentTime = newTime;
-    this.play();
   }
 
   handleVolumeClick({
@@ -45,6 +44,10 @@ class Video {
       value
     }
   }) {
+    this.player.classList.remove('player--muted');
+    if (value == 0) {
+      this.player.classList.add('player--muted');
+    }
     this.video.volume = value;
   }
 
@@ -60,4 +63,4 @@ class Video {
 
 }
 
-export default Video;
+export default CustomVideo;

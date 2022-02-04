@@ -527,45 +527,7 @@ body {
   }
 }
 
-.video {
-  &__player {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 705px;
-
-    background: url("../assets/img/video-player.jpg");
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    @media(max-width: 768px) {
-      height: 418px;
-      background-position-x: -5px;
-    }
-
-    @media(max-width: 480px) {
-      width: 100%;
-      background-position: 30% 0;
-    }
-  }
-
-  &__btn {
-    img {
-      width: 130px;
-      height: 130px;
-
-      @media(max-width: 768px) {
-        width: 64px;
-        height: 64px;
-      }
-    }
-
-    background: transparent;
-    border: none;
-    @include hover;
-  }
-}
+@import './player.scss';
 
 .price {
   padding-bottom: 100px;
@@ -814,7 +776,7 @@ body {
 
   .skills,
   .portfolio,
-  .video-s,
+  .video,
   .price {
     --color-main: #000;
     color: var(--color-black);
