@@ -160,7 +160,7 @@ video.addEventListener('click', (event) => {
 
 /* gradus  */
 console.log(
-  "%c Ваша отметка - 50 баллов",
+  "%c Ваша отметка - 60 баллов",
   "background: #222; color: #bada55"
 );
 

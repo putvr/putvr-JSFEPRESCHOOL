@@ -6,16 +6,6 @@
   border: 1px solid var(--color-gold);
   padding: 20px;
 
-  @media(max-width: 768px) {
-    height: 418px;
-    background-position-x: -5px;
-  }
-
-  @media(max-width: 480px) {
-    width: 100%;
-    background-position: 30% 0;
-  }
-
   &__video {
     width: 100%;
     cursor: pointer;
@@ -47,6 +37,7 @@
     justify-content: space-around;
     gap: 20px;
     padding: 0 20px;
+
   }
 
   &__btn-play,
@@ -61,6 +52,7 @@
 
     border: none;
     cursor: pointer;
+    @include hover;
   }
 
   &__btn-play {
@@ -73,10 +65,12 @@
 
   &__progress {
     flex-grow: 5;
+    @include hover;
   }
 
   &__volume {
     flex-grow: 1;
+    @include hover;
   }
 
   &--disabled {
@@ -90,6 +84,16 @@
     border: none;
 
     transition: 1s ease-out;
+
+    @media(max-width: 768px) {
+      height: 418px;
+      background-position-x: -5px;
+    }
+
+    @media(max-width: 480px) {
+      width: 100%;
+      background-position: 30% 0;
+    }
   }
 
   &--disabled .player__control,
