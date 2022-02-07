@@ -120,47 +120,18 @@ class Player {
   }
 
   handleProgressBarClick(event) {
+    const played = !this.audio.paused;
+    if (played) {
+      this.pause();
+    }
     const time = this.audio.duration * event.target.value / 100;
     this.audio.currentTime = time;
-    this.play();
+
+    if (played) {
+      this.play();
+    }
   }
 }
-
-const dataDev = {
-  artists: [
-    'Amon Amarth',
-  ],
-  tracks: [
-    '04. One Against All.mp3',
-    '08. One Thousand Burning Arrows.mp3',
-    '09. Vengeance Is My Name.mp3',
-    '05. Raise Your Horns.mp3',
-    '11. Back On Northern Shores.mp3',
-    '03. On A Sea Of Blood.mp3',
-    '12. Death In Fire 2016.mp3',
-    '10. A Dream That Cannot Be.mp3',
-    '01. First Kill.mp3',
-    '13. Death In Fire [Live].mp3',
-    '06. The Way Of Vikings.mp3',
-    '02. Wanderer.mp3',
-    '07. At Dawn’s First Light.mp3',
-  ],
-  covers: [
-    'Back.jpg',
-    'Front.jpg',
-    'Back.jpg',
-    'Front.jpg',
-    'Back.jpg',
-    'Front.jpg',
-    'Back.jpg',
-    'Front.jpg',
-    'Back.jpg',
-    'Front.jpg',
-    'Back.jpg',
-    'Front.jpg',
-    'Back.jpg',
-  ]
-};
 
 const dataProd = {
   artists: [
