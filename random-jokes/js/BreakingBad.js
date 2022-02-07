@@ -1,8 +1,8 @@
 class BreakingBad {
   constructor() {
-    this.apiEndpoind = '/';
-    this.quotesPath = 'random-jokes/data/BreakingBad-quotes.json';
-    this.charactersPath = 'random-jokes/data/BreakingBad-characters.json';
+    this.apiEndpoind = window.location.href;
+    this.quotesPath = '/data/BreakingBad-quotes.json';
+    this.charactersPath = '/data/BreakingBad-characters.json';
 
     this.quotes;
     this.characters;
