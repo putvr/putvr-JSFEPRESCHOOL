@@ -40,8 +40,6 @@ class BreakingBad {
     this.author.src = '';
     this.currentQuote = this.randomNumber(this.quotes.length);
 
-    // console.log(this);
-
     const {
       quote,
       author
@@ -52,7 +50,6 @@ class BreakingBad {
     this.author.alt = author;
     const authorData = this.characters.filter(person => person.name == author)[0];
     const newImgSrc = authorData ? authorData.img : './assets/img/unknown.png';
-    // console.log(      authorData, newImgSrc);
 
     this.author.src = newImgSrc;
     this.nextBtn.disabled = false;
