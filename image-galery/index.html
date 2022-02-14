@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="style.css">
+  <title>Image galery</title>
+</head>
+
+<body>
+  <header class="container-lg p-4 g-3header">
+    <form class="row center search" name="search" action="" method="post">
+      <div class="col">
+        <a class="logo" href="/">
+          <img src="./assets/svg/logo.svg">
+        </a>
+      </div>
+
+      <div class="col search__wrap">
+        <input class="search__text" name="term" type="text" placeholder="Enter search phrase" autofocus autocomplete="off">
+        <span class="search__clear" id="clear">X</span>
+      </div>
+
+      <div class="col">
+        <button class="search__submit" type="submit" name="submit">Find</button>
+      </div>
+
+    </form>
+  </header>
+
+  <main class="container main ">
+    <div class="gallery col"></div>
+
+  </main>
+  <footer class="container footer">
+    <div class="row mt-4 justify-content-center">
+      <div class="col-4">
+        <a href="https://github.com/putvr">© 2022 github</a>
+      </div>
+      <div class="col-4">
+        <a href="https://rs.school/js-stage0/" title="Rolling Scopes School">
+          <img class="rss" src="./assets/svg/rss.svg" alt="Rolling Scopes School" width="242" height="60">
+        </a>
+      </div>
+    </div>
+  </footer>
+  <script src="index.js"></script>
+</body>
+
+</html>
