@@ -33,7 +33,6 @@ class UnsplashAPI {
   }
 
   async getInitData() {
-    // const res = await fetch(window.location.href + '/data.json'); //test! 
     const res = await fetch(this.api + `/photos/random?count=9&orientation=squarish`, this.options);
     this.data = await res.json();
     this.renderGallery();
@@ -41,7 +40,6 @@ class UnsplashAPI {
 
   async searchImages(term) {
     const res = await fetch(this.api + `/search/photos?query=${escape(term)}&per_page=9&orientation=portrait`, this.options);
-    // const res = await fetch(this.api + `/search/photos?query=${escape(term)}&per_page=9&orientation=squarish`, this.options);
 
     const data = await res.json();
     this.data = data.results;
@@ -72,3 +70,26 @@ class UnsplashAPI {
 }
 
 const u = new UnsplashAPI();
+
+//review 
+console.log(`
+Оценка 55
+
+1) Вёрстка +10
+    на странице есть несколько фото и строка поиска +5
+    в футере приложения есть ссылка на гитхаб автора приложения, год создания приложения, логотип курса со ссылкой на курс +5
+
+2) При загрузке приложения на странице отображаются полученные от API изображения +10
+
+3) Если в поле поиска ввести слово и отправить поисковый запрос, на странице отобразятся изображения соответствующей тематики, если такие данные предоставляет API +10
+4) Поиск +30
+    при открытии приложения курсор находится в поле ввода +5
+    есть placeholder +5
+    автозаполнение поля ввода отключено (нет выпадающего списка с предыдущими запросами) +5
+    поисковый запрос можно отправить нажатием клавиши Enter +5
+    после отправки поискового запроса и отображения результатов поиска, поисковый запрос продолжает отображаться в поле ввода +5
+    в поле ввода есть крестик при клике по которому поисковый запрос из поля ввода удаляется и отображается placeholder +5
+5) Cобственное оригинальное оформление равное или отличающееся в лучшую сторону по сравнению с демо +5
+  Собрано за полчаса до дедлайна на бутстрапе в старом добром стиле Web 2.0. Наверное выглядит страшно по современным стандартам. 
+
+`);

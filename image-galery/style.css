@@ -6,13 +6,8 @@ body {
 .header {}
 
 .logo {
-  /* display: block; */
-  /* width: 100px; */
-  /* height: 120px; */
-  /* background: url('./assets/img/logo.png'); */
-  /* mask-image: url('./assets/logo.svg'); */
+  width: 120px;
   cursor: pointer;
-  filter: hue-rotate(220deg) saturate(5);
 }
 
 .search {
