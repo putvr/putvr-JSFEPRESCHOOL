@@ -1,17 +1,88 @@
+.main {
+  min-height: 95vh;
+}
+
+.log {
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.log span {
+  font-weight: bold;
+}
+
+.log i {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.alert-danger {
+  transition: 0.5s;
+}
+
 .game {
-  width: 50vw;
-  height: 50vh;
   display: grid;
+  gap: 0;
   grid-template-columns: repeat(3, auto);
+  grid-template-columns: repeat(1fr 1fr 1fr);
+  max-height: 90vh;
 }
 
 .game-cell {
-  width: 100px;
-  height: 100px;
-  border: 1px solid red;
+  cursor: pointer;
+  text-align: center;
+  font-size: 10rem;
+  color: transparent;
 }
 
+@media (max-width: 300px) {
+  .game-cell {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .game-cell {
+    font-size: 5rem;
+  }
+
+}
+
+.bt {
+  border-top: 1px solid powderblue;
+}
+
+.br {
+  border-right: 1px solid powderblue;
+}
+
+.game-cell--X {
+  color: red;
+}
+
+.game-cell--O {
+  color: green;
+}
+
+.game-cell--clicked:hover {
+  cursor: not-allowed;
+}
 
 .win {
-  background-color: green;
+  text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+  color: #fff6a9;
+}
+
+.stat h2 {
+  text-decoration: underline;
+
+}
+
+.link {
+  text-decoration: none;
+  color: unset;
+}
+
+.rss {
+  filter: invert(1);
 }
