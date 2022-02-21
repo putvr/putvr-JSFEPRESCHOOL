@@ -1,0 +1,17 @@
+.game {
+  width: 50vw;
+  height: 50vh;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+}
+
+.game-cell {
+  width: 100px;
+  height: 100px;
+  border: 1px solid red;
+}
+
+
+.win {
+  background-color: green;
+}
