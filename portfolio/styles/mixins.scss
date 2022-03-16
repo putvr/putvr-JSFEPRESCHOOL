@@ -1,0 +1,24 @@
+@mixin focus-decoration {
+  box-shadow: 0 0 0 1em rgba(255, 255, 255, 0);
+  animation: pulse 1s;
+
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 var(--color-gold);
+    }
+  }
+}
+
+@mixin hover-decoration {
+  box-shadow: 0 0.7em 0.7em -0.4em var(--color-gold);
+  transform: translatey(-0.1em);
+}
+
+@mixin hover {
+  transition: 1s;
+  cursor: pointer;  
+
+  &:hover {
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+  }
+}
